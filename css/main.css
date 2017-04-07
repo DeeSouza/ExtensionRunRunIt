@@ -1,83 +1,29 @@
-body{
-	margin: 0;
-	padding: 0;
-	width: 400px;
-	height: 400px;
-	overflow: auto;
-}
+@import url(font-awesome.min.css);
+body {
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  height: 400px;
+  overflow: auto; }
 
-ul{
-	padding: 0;
-	margin: 0;
-	list-style: none;
-}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none; }
 
-header{
-	padding: 10px;
-	width: 100%;
-	background-color: #EB3E35;
-}
+header {
+  padding: 10px;
+  width: 100%;
+  background-color: #EB3E35; }
+  header img {
+    height: 20px; }
 
-header > img{
-	height: 20px;
-}
-
-nav{
-	background-color: #5a5a5a;
-	position: relative;
-}
-
-nav ul{	
-	font-size: 0;
-	border-top: 2px solid #FFF;
-}
-
-nav ul li{
-	display: inline-block;
-	border-color: #FFF;
-	line-height: 50px;
-	height: 50px;
-	width: 33.3%;
-	text-align: center;
-	font-weight: bolder;
-	cursor: pointer;
-	font-size: 14px;
-	color: #FFF;
-	font-family: "Roboto";
-	position: relative;
-	transition: all 0.3s ease-in-out;
-}
-
-nav ul li:not(.active):hover{
-	background-color: #FFF;
-	color: #EB3E35;
-}
-
-nav ul li:before{
-	content: "";
-	width: 10px;
-	height: 10px;
-	background-color: #5a5a5a;
-	-webkit-transform: rotateZ(45deg);
-	    -ms-transform: rotate(45deg);
-	        transform: rotateZ(45deg);
-	position: absolute;
-	bottom: -5px;
-	left: 0;
-	right: 0;
-	display: none;
-	margin: auto;
-}
-
-nav ul li.active:before{
-	display: block;
-}
-
-section{
-	margin-top: 10px;
-}
-
-section#tasks ul li{
+section {
+  margin-top: 10px;
+  display: none; }
+  section.active {
+    display: block; }
+  section#loadTasks div#tasks ul li {
     padding: 0px 10px;
     position: relative;
     line-height: 40px;
@@ -86,10 +32,101 @@ section#tasks ul li{
     font-family: "Roboto";
     border-bottom: 1px dashed #B5B5B5;
     font-size: 14px;
-    transition: all 0.25s ease-in;
-}
+    transition: all 0.25s ease-in; }
+    section#loadTasks div#tasks ul li i {
+      border: 1px solid #30cc34;
+      padding: 8px 20px;
+      margin-right: 9px;
+      box-sizing: border-box;
+      font-size: 18px;
+      border-radius: 5px;
+      color: #30cc34;
+      transition: all 0.25s ease-in; }
+      section#loadTasks div#tasks ul li i:hover {
+        background-color: #dffbdf; }
+    section#loadTasks div#tasks ul li a {
+      text-decoration: none;
+      color: #000;
+      vertical-align: middle; }
+  section#loadLogin {
+    padding: 30px 0px;
+    text-align: center; }
+    section#loadLogin input {
+      height: 50px;
+      width: 80%;
+      font-size: 23px;
+      text-align: left;
+      box-sizing: border-box;
+      padding: 0px 10px;
+      font-family: "Roboto";
+      color: #131212;
+      outline: none;
+      display: block;
+      margin: auto;
+      text-transform: lowercase;
+      border: 0;
+      box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.12); }
+    section#loadLogin button {
+      display: block;
+      margin: auto;
+      width: 80%;
+      outline: none;
+      border: 0;
+      background-color: #2886d2;
+      margin-top: 20px;
+      border-radius: 5px;
+      height: 40px;
+      font-size: 20px;
+      color: #FFF;
+      cursor: pointer;
+      font-weight: bold;
+      font-family: "Roboto"; }
+    section#loadLogin label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #eb3e35;
+      font-size: 15px; }
 
-section#tasks ul li:hover{
-	background-color: #eb3e35;
-	color: #FFF;
-}
+nav#menuApp {
+  background-color: #5a5a5a;
+  position: relative;
+  display: none; }
+  nav#menuApp.active {
+    display: block; }
+  nav#menuApp ul {
+    font-size: 0;
+    border-top: 2px solid #FFF; }
+    nav#menuApp ul li {
+      display: inline-block;
+      border-color: #FFF;
+      line-height: 50px;
+      height: 50px;
+      width: 33.3%;
+      text-align: center;
+      font-weight: bolder;
+      cursor: pointer;
+      font-size: 14px;
+      color: #FFF;
+      font-family: "Roboto";
+      position: relative;
+      transition: all 0.3s ease-in-out; }
+      nav#menuApp ul li:not(.active):hover {
+        background-color: #FFF;
+        color: #EB3E35; }
+      nav#menuApp ul li:before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        background-color: #5a5a5a;
+        -webkit-transform: rotateZ(45deg);
+            -ms-transform: rotate(45deg);
+                transform: rotateZ(45deg);
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        display: none;
+        margin: auto; }
+      nav#menuApp ul li.active:before {
+        display: block; }

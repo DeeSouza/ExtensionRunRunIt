@@ -9,9 +9,11 @@
 
 	<header><img src="img/runrunit-logo.png" alt="RunrunIt"></header>
 
-	<section id="loadLogin">
-		<label>Username</label>
-		<input type="text" id="username" name="username">
+	<section id="loadLogin" class="sectionTemplate">
+		<input type="text" id="username" name="username" placeholder="Username">
+		<button id="doLogin">Entrar</button>
+
+		<label id="error"></label>
 	</section>
 
 	<nav id="menuApp">
@@ -22,10 +24,10 @@
 		</ul>
 	</nav>
 
-	<section id="loadTasks">
-		<section id="tasks">
+	<section id="loadTasks" class="sectionTemplate">
+		<div id="tasks">
 			<ul id="list-tasks"></ul>
-		</section>
+		</div>
 	</section>
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
