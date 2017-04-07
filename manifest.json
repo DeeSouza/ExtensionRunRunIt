@@ -1,0 +1,17 @@
+{
+   "manifest_version": 2,
+   "name": "Runrun.It",
+   "version": "1.0",
+   "description": "Extensão para Runrun.It",
+   "browser_action":{
+	  "default_icon": "img/icon16.png",
+	  "default_popup": "main.html"
+   },
+   "icons": {
+		"48": "img/icon48.png",
+		"128": "img/icon128.png"
+	},
+	"permissions": [
+		"https://secure.runrun.it/api/v1.0/"
+	]
+}

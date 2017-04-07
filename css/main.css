@@ -1,0 +1,93 @@
+body{
+	margin: 0;
+	padding: 0;
+	width: 400px;
+	height: 400px;
+	overflow: auto;
+}
+
+ul{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+header{
+	padding: 10px;
+	width: 100%;
+	background-color: #EB3E35;
+}
+
+header > img{
+	height: 20px;
+}
+
+nav{
+	background-color: #5a5a5a;
+	position: relative;
+}
+
+nav ul{	
+	font-size: 0;
+	border-top: 2px solid #FFF;
+}
+
+nav ul li{
+	display: inline-block;
+	border-color: #FFF;
+	line-height: 50px;
+	height: 50px;
+	width: 33.3%;
+	text-align: center;
+	font-weight: bolder;
+	cursor: pointer;
+	font-size: 14px;
+	color: #FFF;
+	font-family: "Roboto";
+	position: relative;
+	transition: all 0.3s ease-in-out;
+}
+
+nav ul li:not(.active):hover{
+	background-color: #FFF;
+	color: #EB3E35;
+}
+
+nav ul li:before{
+	content: "";
+	width: 10px;
+	height: 10px;
+	background-color: #5a5a5a;
+	transform: rotateZ(45deg);
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	right: 0;
+	display: none;
+	margin: auto;
+}
+
+nav ul li.active:before{
+	display: block;
+}
+
+section{
+	margin-top: 10px;
+}
+
+section#tasks ul li{
+    padding: 0px 10px;
+    position: relative;
+    line-height: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-family: "Roboto";
+    border-bottom: 1px dashed #B5B5B5;
+    font-size: 14px;
+    transition: all 0.25s ease-in;
+}
+
+section#tasks ul li:hover{
+	background-color: #eb3e35;
+	color: #FFF;
+}
