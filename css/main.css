@@ -24,30 +24,40 @@ section {
   section.active {
     display: block; }
   section#loadTasks div#tasks ul li {
-    padding: 0px 10px;
+    padding: 10px;
     position: relative;
-    line-height: 40px;
-    height: 40px;
     cursor: pointer;
     font-family: "Roboto";
     border-bottom: 1px dashed #B5B5B5;
     font-size: 14px;
     transition: all 0.25s ease-in; }
     section#loadTasks div#tasks ul li i {
-      border: 1px solid #30cc34;
       padding: 8px 20px;
       margin-right: 9px;
       box-sizing: border-box;
       font-size: 18px;
       border-radius: 5px;
-      color: #30cc34;
-      transition: all 0.25s ease-in; }
-      section#loadTasks div#tasks ul li i:hover {
-        background-color: #dffbdf; }
-    section#loadTasks div#tasks ul li a {
-      text-decoration: none;
-      color: #000;
+      transition: all 0.25s ease-in;
       vertical-align: middle; }
+      section#loadTasks div#tasks ul li i.fa-play {
+        color: #30cc34;
+        border: 1px solid #30cc34; }
+        section#loadTasks div#tasks ul li i.fa-play:hover {
+          background-color: #dffbdf; }
+      section#loadTasks div#tasks ul li i.fa-pause {
+        color: #EB3E35;
+        border: 1px solid #EB3E35; }
+        section#loadTasks div#tasks ul li i.fa-pause:hover {
+          background-color: #ffe9e8; }
+    section#loadTasks div#tasks ul li .info {
+      display: inline-block;
+      vertical-align: middle; }
+      section#loadTasks div#tasks ul li .info a {
+        text-decoration: none;
+        color: #000;
+        vertical-align: middle; }
+        section#loadTasks div#tasks ul li .info a:hover {
+          color: #EB3E35; }
   section#loadLogin {
     padding: 30px 0px;
     text-align: center; }

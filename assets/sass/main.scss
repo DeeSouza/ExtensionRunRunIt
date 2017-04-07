@@ -33,32 +33,48 @@ section{
 		div#tasks{
 			ul{
 				li{
-				    padding: 0px 10px;
+				    padding: 10px;
 				    position: relative;
-				    line-height: 40px;
-				    height: 40px;
 				    cursor: pointer;
 				    font-family: "Roboto";
 				    border-bottom: 1px dashed #B5B5B5;
 				    font-size: 14px;
 				    transition: all 0.25s ease-in;
 				    i{
-				    	border: 1px solid #30cc34;
 			    	    padding: 8px 20px;
 			    	    margin-right: 9px;
 			    	    box-sizing: border-box;
 			    	    font-size: 18px;
 			    	    border-radius: 5px;
-			    	    color: #30cc34;
 			    	    transition: all 0.25s ease-in;
-			    	    &:hover{
-			    	    	background-color: #dffbdf;
-			    	    }
+			    	    vertical-align: middle;
+			    	    &.fa-play{
+				    	    color: #30cc34;
+					    	border: 1px solid #30cc34;
+				    	    &:hover{
+				    	    	background-color: #dffbdf;
+				    	    }
+					    }
+					    &.fa-pause{
+		    	    	    color: #EB3E35;
+		    		    	border: 1px solid #EB3E35;	
+		    		    	&:hover{
+				    	    	background-color: #ffe9e8;
+				    	    }
+					    }
 				    }
-				    a{
-				    	text-decoration: none;
-				    	color: #000;
+
+				    .info{
+				    	display: inline-block;
 				    	vertical-align: middle;
+					    a{
+					    	text-decoration: none;
+					    	color: #000;
+					    	vertical-align: middle;
+					    	&:hover{
+					    		color: #EB3E35;
+					    	}
+					    }
 				    }
 				}
 			}

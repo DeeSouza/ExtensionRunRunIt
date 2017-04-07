@@ -18,15 +18,22 @@
 
 	<nav id="menuApp">
 		<ul>
-			<li class="active"><div>TAREFAS</div></li>
-			<li><div>PROJETOS</div></li>
-			<li><div>MURAL</div></li>
+			<li class="showSection active" id="#loadTasks"><div>TAREFAS</div></li>
+			<li class="showSection" id="#loadStat"><div>STATS</div></li>
+			<li class="showSection" id="#loadWalk"><div>MURAL</div></li>
 		</ul>
 	</nav>
 
 	<section id="loadTasks" class="sectionTemplate">
 		<div id="tasks">
 			<ul id="list-tasks"></ul>
+		</div>
+	</section>
+
+	<section id="loadStat" class="sectionTemplate">
+		<div id="ranking">
+			Desempenho
+			<div class="value"></div>
 		</div>
 	</section>
 
