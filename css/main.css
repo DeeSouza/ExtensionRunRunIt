@@ -58,7 +58,9 @@ nav ul li:before{
 	width: 10px;
 	height: 10px;
 	background-color: #5a5a5a;
-	transform: rotateZ(45deg);
+	-webkit-transform: rotateZ(45deg);
+	    -ms-transform: rotate(45deg);
+	        transform: rotateZ(45deg);
 	position: absolute;
 	bottom: -5px;
 	left: 0;

@@ -1,7 +1,20 @@
 var urlAPI = "https://secure.runrun.it/api/v1.0/";
 var tasks  = '/tasks/';
+var users 	= '/users'
 
 $(document).ready(function(){
+
+	function getUser(){
+		$.ajax({
+			type: "GET",
+			url: urlAPI + users,
+			beforeSend: function(){
+				ulContent.html('<p align="center"><img src="img/ripple.gif" height="30"></p>');
+			},
+			success: function(response){
+			}
+		});
+	}
 
 	function listTasks(){
 		var ulContent = $('#list-tasks');
@@ -22,7 +35,5 @@ $(document).ready(function(){
 			}
 		});
 	}
-
-	listTasks();
 
 });

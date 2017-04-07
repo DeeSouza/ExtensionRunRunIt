@@ -8,7 +8,13 @@
 <body>
 
 	<header><img src="img/runrunit-logo.png" alt="RunrunIt"></header>
-	<nav>
+
+	<section id="loadLogin">
+		<label>Username</label>
+		<input type="text" id="username" name="username">
+	</section>
+
+	<nav id="menuApp">
 		<ul>
 			<li class="active"><div>TAREFAS</div></li>
 			<li><div>PROJETOS</div></li>
@@ -16,8 +22,10 @@
 		</ul>
 	</nav>
 
-	<section id="tasks">
-		<ul id="list-tasks"></ul>
+	<section id="loadTasks">
+		<section id="tasks">
+			<ul id="list-tasks"></ul>
+		</section>
 	</section>
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
