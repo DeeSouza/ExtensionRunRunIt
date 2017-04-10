@@ -5,12 +5,14 @@ var urlUserStat	= '/user_statistics/';
 var username 	= window.localStorage.getItem('username');
 var menuApp 	= $('#menuApp');
 var getUser;
+
 var config 		= {
 	auth 	: 0
 }
 
 $(document).ready(function(){
 
+	/* Check Authenticate */
 	function CheckAuth(){
 		if(username === null){
 			loadTemplate('#loadLogin');
@@ -21,6 +23,7 @@ $(document).ready(function(){
 		}
 	}
 
+	/* Do Login */
 	function doLogin(){
 		var username 	= $('#username');
 		var labelError 	= $("#error");
@@ -46,6 +49,7 @@ $(document).ready(function(){
 		});
 	}
 
+	/* User Informations */
 	var getUser = (function(){
 
 		var username = window.localStorage.getItem('username');
@@ -78,18 +82,17 @@ $(document).ready(function(){
 				getDados();
 			},
 
-			get username(){
+			get profile(){
 				return dados;
 			}
 		}
 
 	})();
 
+	/* List of Tasks of the User Logged */
 	function listTasks(){
 		var ulContent 	= $('#list-tasks');
-		var username 	= getUser.username.id;
-
-		console.log(username);
+		var username 	= getUser.profile.id;
 
 		$.ajax({
 			type: "GET",
@@ -126,6 +129,7 @@ $(document).ready(function(){
 		});
 	}
 
+	/* Load Template */
 	function loadTemplate(section){
 		$('.sectionTemplate').removeClass('active');
 		$(section).addClass('active');
@@ -137,6 +141,7 @@ $(document).ready(function(){
 		}			
 	}
 
+	/* Play in Task */
 	function playTask(){
 		var el 	   = $(this);
 		var idTask = $(this).parent().data('id-project');
@@ -157,6 +162,7 @@ $(document).ready(function(){
 		});
 	}
 
+	/* Pause in Task */
 	function pauseTask(){
 		var el 	   = $(this);
 		var idTask = $(this).parent().data('id-project');
@@ -177,6 +183,32 @@ $(document).ready(function(){
 		});
 	}
 
+	/* Load Information And Stats of User */
+	function loadStatUser(){
+		var username 		= getUser.profile.id;
+		var name 			= getUser.profile.name;
+		var imageProfile 	= getUser.profile.avatar_large_url;
+
+		/* Load Image Profile */
+		$('#loadStat > .infos > .image').html('<img src="'+imageProfile+'">');
+		$('#loadStat > .infos > .name').html(name);
+
+		$.ajax({
+			type: "GET",
+			url: urlAPI + urlUserStat + username,
+			beforeSend: function(){
+				
+			},
+			success: function(response){
+				console.log('Load User Stat');
+				$('.value').html(response.total);
+			},
+			error: function(){
+				console.log('Error Load User Stat');
+			}
+		});
+	}
+
 	function showSection(){
 		var idSection = $(this).attr('id');
 		$('.showSection').removeClass('active');
@@ -184,6 +216,11 @@ $(document).ready(function(){
 
 		$('.sectionTemplate').removeClass('active');
 		$(idSection).addClass('active');
+
+		console.log(idSection);
+		if(idSection == '#loadStat'){
+			loadStatUser();
+		}
 	}
 
 	CheckAuth();
