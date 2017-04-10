@@ -23,41 +23,124 @@ section {
   display: none; }
   section.active {
     display: block; }
-  section#loadTasks div#tasks ul li {
-    padding: 10px;
-    position: relative;
-    cursor: pointer;
-    font-family: "Roboto";
-    border-bottom: 1px dashed #B5B5B5;
-    font-size: 14px;
-    transition: all 0.25s ease-in; }
-    section#loadTasks div#tasks ul li i {
-      padding: 8px 20px;
-      margin-right: 9px;
-      box-sizing: border-box;
-      font-size: 18px;
-      border-radius: 5px;
-      transition: all 0.25s ease-in;
-      vertical-align: middle; }
-      section#loadTasks div#tasks ul li i.fa-play {
-        color: #30cc34;
-        border: 1px solid #30cc34; }
-        section#loadTasks div#tasks ul li i.fa-play:hover {
-          background-color: #dffbdf; }
-      section#loadTasks div#tasks ul li i.fa-pause {
-        color: #EB3E35;
-        border: 1px solid #EB3E35; }
-        section#loadTasks div#tasks ul li i.fa-pause:hover {
-          background-color: #ffe9e8; }
-    section#loadTasks div#tasks ul li .info {
-      display: inline-block;
-      vertical-align: middle; }
-      section#loadTasks div#tasks ul li .info a {
-        text-decoration: none;
-        color: #000;
-        vertical-align: middle; }
-        section#loadTasks div#tasks ul li .info a:hover {
-          color: #EB3E35; }
+  section#loadTasks {
+    position: relative; }
+    section#loadTasks div#tasks {
+      -webkit-transform: translateX(0%);
+          -ms-transform: translateX(0%);
+              transform: translateX(0%);
+      transition: all 0.3s ease-in; }
+      section#loadTasks div#tasks.active {
+        -webkit-transform: translateX(-100%);
+            -ms-transform: translateX(-100%);
+                transform: translateX(-100%); }
+      section#loadTasks div#tasks ul li {
+        padding: 10px;
+        position: relative;
+        cursor: pointer;
+        font-family: "Roboto";
+        border-bottom: 1px dashed #B5B5B5;
+        font-size: 14px;
+        transition: all 0.25s ease-in; }
+        section#loadTasks div#tasks ul li i {
+          padding: 8px 20px;
+          margin-right: 9px;
+          box-sizing: border-box;
+          font-size: 18px;
+          border-radius: 5px;
+          transition: all 0.25s ease-in;
+          vertical-align: middle; }
+          section#loadTasks div#tasks ul li i.fa-play {
+            color: #30cc34;
+            border: 1px solid #30cc34; }
+            section#loadTasks div#tasks ul li i.fa-play:hover {
+              background-color: #dffbdf; }
+          section#loadTasks div#tasks ul li i.fa-pause {
+            color: #EB3E35;
+            border: 1px solid #EB3E35; }
+            section#loadTasks div#tasks ul li i.fa-pause:hover {
+              background-color: #ffe9e8; }
+          section#loadTasks div#tasks ul li i.fa-clock-o {
+            color: #000;
+            border: 1px solid #000; }
+        section#loadTasks div#tasks ul li .info {
+          display: inline-block;
+          vertical-align: middle; }
+          section#loadTasks div#tasks ul li .info a {
+            text-decoration: none;
+            color: #000;
+            vertical-align: middle; }
+            section#loadTasks div#tasks ul li .info a:hover {
+              color: #EB3E35; }
+    section#loadTasks div.detail-task {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: #FFF;
+      transition: all 0.3s ease-in;
+      -webkit-transform: translateX(100%);
+          -ms-transform: translateX(100%);
+              transform: translateX(100%); }
+      section#loadTasks div.detail-task.active {
+        opacity: 1;
+        visibility: visible;
+        -webkit-transform: translateX(0%);
+            -ms-transform: translateX(0%);
+                transform: translateX(0%); }
+      section#loadTasks div.detail-task h2 {
+        margin: 0;
+        text-align: center;
+        position: relative; }
+        section#loadTasks div.detail-task h2 i {
+          position: absolute;
+          left: 10px;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          height: 25px;
+          width: 40px;
+          cursor: pointer;
+          background: #eb3e35;
+          color: #FFF;
+          box-sizing: border-box;
+          font-size: 26px;
+          opacity: 1;
+          transition: all 0.2s ease-in; }
+          section#loadTasks div.detail-task h2 i:hover {
+            opacity: 0.8; }
+      section#loadTasks div.detail-task .description {
+        text-align: left;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        font-size: 13px;
+        overflow: auto;
+        height: 250px; }
+        section#loadTasks div.detail-task .description::-webkit-scrollbar {
+          width: 4px;
+          height: 4px; }
+        section#loadTasks div.detail-task .description::-webkit-scrollbar-button {
+          width: 0px;
+          height: 0px; }
+        section#loadTasks div.detail-task .description::-webkit-scrollbar-thumb {
+          background: #000;
+          border: 0px none #FFF;
+          border-radius: 50px; }
+        section#loadTasks div.detail-task .description::-webkit-scrollbar-thumb:hover {
+          background: #FFF; }
+        section#loadTasks div.detail-task .description::-webkit-scrollbar-thumb:active {
+          background: #000; }
+        section#loadTasks div.detail-task .description::-webkit-scrollbar-track {
+          background: #FFF;
+          border: 0px none #FFF;
+          border-radius: 100px; }
+        section#loadTasks div.detail-task .description::-webkit-scrollbar-track:hover {
+          background: #ffffff; }
+        section#loadTasks div.detail-task .description::-webkit-scrollbar-track:active {
+          background: #FFF; }
+        section#loadTasks div.detail-task .description::-webkit-scrollbar-corner {
+          background: transparent; }
   section#loadLogin {
     padding: 30px 0px;
     text-align: center; }

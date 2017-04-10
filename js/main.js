@@ -106,7 +106,7 @@ $(document).ready(function(){
 					if(v.project_name.length > 30) project_name = v.project_name.substring(0, 30);
 
 					if(v.is_working_on){
-						ulContent.append('<li data-id-project="'+v.id+'"> \
+						ulContent.append('<li data-id-task="'+v.id+'"> \
 										 	<i class="fa fa-pause pauseTask"></i> \
 											<div class="info"> \
 												<a href="javascript: void(0)" class="showTask">' + project_name + '<a/> \
@@ -115,7 +115,7 @@ $(document).ready(function(){
 										 </li>');
 					}
 					else{
-						ulContent.append('<li data-id-project="'+v.id+'"> \
+						ulContent.append('<li data-id-task="'+v.id+'"> \
 										 	<i class="fa fa-play playTask"></i> \
 										 	<div class="info"> \
 												<a href="javascript: void(0)" class="showTask">' + project_name + '<a/> \
@@ -144,17 +144,17 @@ $(document).ready(function(){
 	/* Play in Task */
 	function playTask(){
 		var el 	   = $(this);
-		var idTask = $(this).parent().data('id-project');
+		var idTask = $(this).parent().data('id-task');
 
 		$.ajax({
 			type: "POST",
 			url: urlAPI + urlTasks + '/' + idTask + '/play',
 			beforeSend: function(){
-				
+				el.removeClass('fa-play playTask').addClass('fa-clock-o');
 			},
 			success: function(response){
 				console.log('Task Play');
-				el.removeClass('fa-play playTask').addClass('fa-pause pauseTask');
+				el.removeClass('fa-play playTask fa-clock-o').addClass('fa-pause pauseTask');
 			},
 			error: function(){
 				console.log('Error Task Play');
@@ -165,17 +165,17 @@ $(document).ready(function(){
 	/* Pause in Task */
 	function pauseTask(){
 		var el 	   = $(this);
-		var idTask = $(this).parent().data('id-project');
+		var idTask = $(this).parent().data('id-task');
 
 		$.ajax({
 			type: "POST",
 			url: urlAPI + urlTasks + '/' + idTask + '/pause',
 			beforeSend: function(){
-				
+				el.removeClass('fa-pause pauseTask').addClass('fa-clock-o');
 			},
 			success: function(response){
 				console.log('Task Pause');
-				el.removeClass('fa-pause pauseTask').addClass('fa-play playTask');
+				el.removeClass('fa-pause pauseTask fa-clock-o').addClass('fa-play playTask');
 			},
 			error: function(){
 				console.log('Error Task Pause');
@@ -209,6 +209,32 @@ $(document).ready(function(){
 		});
 	}
 
+	/* Show Description From Task */
+	function showTask(){
+		var idTask = $(this).closest('li').data('id-task');
+
+		$.ajax({
+			type: "GET",
+			url: urlAPI + urlTasks + '/' + idTask + '/description',
+			beforeSend: function(){
+				
+			},
+			success: function(response){
+				console.log('Load Description Task');
+				$('#tasks, .detail-task').addClass('active');
+				$('.detail-task > .description').html(response.description);
+			},
+			error: function(){
+				console.log('Error Load Description Task');
+			}
+		});
+	}
+
+	function backTasks(){
+		$('#tasks, .detail-task').removeClass('active');
+	}
+
+	/* Show Page */
 	function showSection(){
 		var idSection = $(this).attr('id');
 		$('.showSection').removeClass('active');
@@ -217,7 +243,6 @@ $(document).ready(function(){
 		$('.sectionTemplate').removeClass('active');
 		$(idSection).addClass('active');
 
-		console.log(idSection);
 		if(idSection == '#loadStat'){
 			loadStatUser();
 		}
@@ -229,5 +254,7 @@ $(document).ready(function(){
 	$(document).on('click', '.playTask', playTask);
 	$(document).on('click', '.pauseTask', pauseTask);
 	$(document).on('click', '.showSection', showSection);
+	$(document).on('click', '.showTask', showTask);
+	$(document).on('click', '.backTasks', backTasks);
 
 });
