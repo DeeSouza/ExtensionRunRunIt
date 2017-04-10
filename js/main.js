@@ -33,9 +33,9 @@ $(document).ready(function(){
 			url: urlAPI + urlUsers + username.val(),
 			beforeSend: function(){
 				username.prop('disabled', true);
+				window.localStorage.setItem('username', username.val());
 			},
 			success: function(){
-				window.localStorage.setItem('username', username.val());
 				username.prop('disabled', true);
 				config.auth = 1;
 				loadTemplate('#loadTasks');
@@ -52,16 +52,14 @@ $(document).ready(function(){
 	/* User Informations */
 	var getUser = (function(){
 
-		var username = window.localStorage.getItem('username');
 		var callback;
 		var dados;
 
 		function getDados(){
 			$.ajax({
 				type: "GET",
-				url: urlAPI + urlUsers + username,
+				url: urlAPI + urlUsers + window.localStorage.getItem('username'),
 				beforeSend: function(){
-
 				},
 				success: function(response){
 					dados = response;
