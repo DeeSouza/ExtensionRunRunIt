@@ -81,6 +81,9 @@ section {
               font-size: 12px; }
             section#loadTasks div#tasks ul li .info a:hover {
               color: #EB3E35; }
+          section#loadTasks div#tasks ul li .info .client {
+            color: #909090;
+            cursor: default; }
     section#loadTasks div.detail-task {
       opacity: 0;
       visibility: hidden;

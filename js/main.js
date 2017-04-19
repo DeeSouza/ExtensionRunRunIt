@@ -44,6 +44,7 @@ $(document).ready(function(){
 			error: function(){
 				labelError.html('Login Inválido!');
 				username.prop('disabled', false);
+				window.localStorage.removeItem('username');
 				console.log('Error Logged');
 			}
 		});
@@ -101,30 +102,36 @@ $(document).ready(function(){
 			success: function(response){
 				ulContent.html('');
 				$.each(response, function(i,v){
-					if(v.title.length > 25) 	   title 		= v.title.substring(0, 25);
-					if(v.project_name.length > 25) project_name = v.project_name.substring(0, 25);
+					title 		 = v.title;
+					project_name = v.project_name;
+
+					if(v.title.length > 25)
+						title = v.title.substring(0, 25);
+
+					if(v.project_name.length > 25)
+						project_name = v.project_name.substring(0, 25);
 
 					if(v.is_working_on){
-						ulContent.append('<li data-id-task="'+v.id+'"> \
-										 	<i class="fa fa-pause pauseTask"></i> \
-											<div class="info"> \
-												<a href="javascript: void(0)" class="showTask title" title="'+v.title+'">' + title + '</a> \
-												<a href="javascript: void(0)" class="showTask project" title="'+v.project_name+'">' + project_name + '</a> \
-												<div>' +v.client_name+ '</div> \
-												<a href="#"><i class="fa fa-external-link"></i></a> \
-											</div> \
-										 </li>');
+						ulContent.append(`<li data-id-task="${v.id}">
+										 	<i class="fa fa-pause pauseTask"></i>
+											<div class="info">
+												<a href="javascript: void(0)" class="showTask title" title="${v.title}">${title}</a>
+												<a href="javascript: void(0)" class="showTask project" title="${v.project_name}">${project_name}</a>
+												<div class="client">${v.client_name}</div>
+												<a href="https://secure.runrun.it/tasks/${v.id}" class="externalLink" target="_blank"><i class="fa fa-external-link"></i></a>
+											</div>
+										 </li>`);
 					}
 					else{
-						ulContent.append('<li data-id-task="'+v.id+'"> \
-										 	<i class="fa fa-play playTask"></i> \
-										 	<div class="info"> \
-												<a href="javascript: void(0)" class="showTask title" title="'+v.title+'">' + title + '</a> \
-												<a href="javascript: void(0)" class="showTask project" title="'+v.project_name+'">' + project_name + '</a> \
-												<div>' +v.client_name+ '</div> \
-												<a href="https://secure.runrun.it/tasks/'+v.id+'" target="_blank" class="externalLink"><i class="fa fa-external-link"></i></a> \
-											</div> \
-										 </li>');
+						ulContent.append(`<li data-id-task="${v.id}">
+										 	<i class="fa fa-play playTask"></i>
+											<div class="info">
+												<a href="javascript: void(0)" class="showTask title" title="${v.title}">${title}</a>
+												<a href="javascript: void(0)" class="showTask project" title="${v.project_name}">${project_name}</a>
+												<div class="client">${v.client_name}</div>
+												<a href="https://secure.runrun.it/tasks/${v.id}" class="externalLink" target="_blank"><i class="fa fa-external-link"></i></a>
+											</div>
+										 </li>`);
 					}
 					console.log('List Tasks');
 				});
