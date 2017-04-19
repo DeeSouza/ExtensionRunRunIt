@@ -66,7 +66,7 @@ section{
 					    }
 					    &.fa-pause{
 		    	    	    color: #EB3E35;
-		    		    	border: 1px solid #EB3E35;	
+		    		    	border: 1px solid #EB3E35;
 		    		    	&:hover{
 				    	    	background-color: #ffe9e8;
 				    	    }
@@ -75,7 +75,14 @@ section{
 					    	color: #000;
 					    	border: 1px solid #000;
 					    }
+
 				    }
+
+					a.externalLink{
+						position: absolute;
+						right: 0;
+						top: 10px;
+					}
 
 				    .info{
 				    	display: inline-block;
@@ -98,7 +105,9 @@ section{
 			visibility: hidden;
 			position: absolute;
 			top: 0;
-			right: 0;
+			left: 0;
+			width: 100%;
+			overflow: hidden;
 			background-color: #FFF;
 			transition: all 0.3s ease-in;
 			transform: translateX(100%);
@@ -107,78 +116,115 @@ section{
 				visibility: visible;
 				transform: translateX(0%);
 			}
-			h2{
-				margin: 0;
+			i.backTasks{
+				position: absolute;
+				left: 10px;
+				top: 0;
 				text-align: center;
-				position: relative;
-				i{
-					position: absolute;
-				    left: 10px;
-				    top: 0;
-				    bottom: 0;
-				    margin: auto;
-				    height: 25px;
-				    width: 40px;
-				    cursor: pointer;
-				    background: #eb3e35;
-				    color: #FFF;
-				    box-sizing: border-box;
-				    font-size: 26px;
-				    opacity: 1;
-				    transition: all 0.2s ease-in;
-				    &:hover{
-				    	opacity: 0.8;
-				    }
+				margin: auto;
+				height: 25px;
+				width: 40px;
+				cursor: pointer;
+				background: #eb3e35;
+				color: #FFF;
+				box-sizing: border-box;
+				font-size: 26px;
+				opacity: 1;
+				transition: all 0.2s ease-in;
+				&:hover{
+					opacity: 0.8;
 				}
 			}
-			.description{
+
+			> ul{
+				margin-top: 30px;
+				font-size: 16px;
+				text-align: center;
+				li{
+					display: inline-block;
+					padding: 5px 15px;
+					background-color: #e0e0e0;
+					i{
+						margin-right: 5px;
+						vertical-align: middle;
+						color: #eb3e35;
+					}
+					a{
+						text-decoration: none;
+						color: #5a5a5a;
+						vertical-align: middle;
+						font-weight: bold;
+					}
+				}
+			}
+
+			.tabIntern{
 				text-align: left;
-			    padding: 10px 20px;
-			    box-sizing: border-box;
-			    font-size: 13px;
-			    overflow: auto;
-			    height: 250px;
+				padding: 10px 20px;
+				box-sizing: border-box;
+				font-size: 13px;
+				overflow: auto;
+				height: 250px;
+				&::-webkit-scrollbar{
+					width: 4px;
+					height: 4px;
+				}
 
-			    &::-webkit-scrollbar{
-			      width: 4px;
-			      height: 4px;
-			    }
+				&::-webkit-scrollbar-button{
+					width: 0px;
+					height: 0px;
+				}
 
-			    &::-webkit-scrollbar-button{
-			      width: 0px;
-			      height: 0px;
-			    }
+				&::-webkit-scrollbar-thumb{
+					background: #000;
+					border: 0px none #FFF;
+					border-radius: 50px;
+				}
 
-			    &::-webkit-scrollbar-thumb{
-			      background: #000;
-			      border: 0px none #FFF;
-			      border-radius: 50px;
-			    }
+				&::-webkit-scrollbar-thumb:hover{
+					background: #FFF;
+				}
+				&::-webkit-scrollbar-thumb:active{
+					background: #000;
+				}
 
-			    &::-webkit-scrollbar-thumb:hover{
-			      background: #FFF;
-			    }
-			    &::-webkit-scrollbar-thumb:active{
-			      background: #000;
-			    }
+				&::-webkit-scrollbar-track{
+					background: #FFF;
+					border: 0px none #FFF;
+					border-radius: 100px;
+				}
 
-			    &::-webkit-scrollbar-track{
-			      background: #FFF;
-			      border: 0px none #FFF;
-			      border-radius: 100px;
-			    }
+				&::-webkit-scrollbar-track:hover{
+					background: #ffffff;
+				}
 
-			    &::-webkit-scrollbar-track:hover{
-			      background: #ffffff;
-			    }
+				&::-webkit-scrollbar-track:active{
+					background: #FFF;
+				}
 
-			    &::-webkit-scrollbar-track:active{
-			      background: #FFF;
-			    }
+				&::-webkit-scrollbar-corner{
+					background: transparent;
+				}
+				&.hide{
+					display: none;
+				}
+				&.description{
 
-			    &::-webkit-scrollbar-corner{
-			      background: transparent;
-			    }
+				}
+				&.attachments{
+					ul{
+						list-style: none;
+						padding: 0;
+						margin: 0;
+						font-family: "Roboto";
+						margin-top: 20px;
+						li{
+							font-size: 14px;
+							height: 25px;
+							border-bottom: 1px solid #F7F7F7;
+						}
+					}
+				}
 			}
 		}
 	}

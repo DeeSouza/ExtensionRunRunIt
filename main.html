@@ -30,8 +30,15 @@
 		</div>
 
 		<div class="detail-task">
-			<h2><i class="fa fa-long-arrow-left backTasks"></i>Descrição da Tarefa</h2>
-			<div class="description"></div>
+			<i class="fa fa-long-arrow-left backTasks"></i>
+			<ul>
+				<li><i class="fa fa-file"></i><a href="#showDesc" class="showInternTask">Descrição</a></li>
+				<li><i class="fa fa-paperclip"></i><a href="#showAtta" class="showInternTask">Anexos</a></li>
+			</ul>
+			<div class="description tabIntern" id="showDesc"></div>
+			<div class="attachments tabIntern hide" id="showAtta">
+				<ul></ul>
+			</div>
 		</div>
 	</section>
 

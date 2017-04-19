@@ -19,7 +19,7 @@ $(document).ready(function(){
 		}
 		else{
 			config.auth = 1;
-			loadTemplate('#loadTasks');	
+			loadTemplate('#loadTasks');
 		}
 	}
 
@@ -107,8 +107,9 @@ $(document).ready(function(){
 						ulContent.append('<li data-id-task="'+v.id+'"> \
 										 	<i class="fa fa-pause pauseTask"></i> \
 											<div class="info"> \
-												<a href="javascript: void(0)" class="showTask">' + project_name + '<a/> \
+												<a href="javascript: void(0)" class="showTask">' + project_name + '</a> \
 												<div>' +v.client_name+ '</div> \
+												<a href="#"><i class="fa fa-external-link"></i></a> \
 											</div> \
 										 </li>');
 					}
@@ -116,8 +117,9 @@ $(document).ready(function(){
 						ulContent.append('<li data-id-task="'+v.id+'"> \
 										 	<i class="fa fa-play playTask"></i> \
 										 	<div class="info"> \
-												<a href="javascript: void(0)" class="showTask">' + project_name + '<a/> \
+												<a href="javascript: void(0)" class="showTask">' + project_name + '</a> \
 												<div>' +v.client_name+ '</div> \
+												<a href="https://secure.runrun.it/tasks/'+v.id+'" target="_blank" class="externalLink"><i class="fa fa-external-link"></i></a> \
 											</div> \
 										 </li>');
 					}
@@ -136,7 +138,7 @@ $(document).ready(function(){
 			menuApp.addClass('active');
 			getUser.responseCallback(listTasks);
 			getUser.getDados();
-		}			
+		}
 	}
 
 	/* Play in Task */
@@ -195,7 +197,7 @@ $(document).ready(function(){
 			type: "GET",
 			url: urlAPI + urlUserStat + username,
 			beforeSend: function(){
-				
+
 			},
 			success: function(response){
 				console.log('Load User Stat');
@@ -215,7 +217,7 @@ $(document).ready(function(){
 			type: "GET",
 			url: urlAPI + urlTasks + '/' + idTask + '/description',
 			beforeSend: function(){
-				
+
 			},
 			success: function(response){
 				console.log('Load Description Task');
@@ -224,6 +226,24 @@ $(document).ready(function(){
 			},
 			error: function(){
 				console.log('Error Load Description Task');
+			}
+		});
+
+		$.ajax({
+			type: "GET",
+			url: urlAPI + urlTasks + '/' + idTask + '/documents',
+			beforeSend: function(){
+				$('.detail-task > .attachments > ul').html('');
+			},
+			success: function(response){
+				console.log('Load Attachments Task');
+				$('#tasks, .detail-task').addClass('active');
+				$.each(response, function(i,v){
+					$('.detail-task > .attachments > ul').append('<li>' + v.data_file_name + '</li>');
+				});
+			},
+			error: function(){
+				console.log('Error Load Attachments Task');
 			}
 		});
 	}
@@ -246,6 +266,13 @@ $(document).ready(function(){
 		}
 	}
 
+	/* Show Intern Task Description And Attachments */
+	function internTask(){
+		var idTab = $(this).attr('href')
+		$('.tabIntern').addClass('hide');
+		$(idTab).removeClass('hide');
+	}
+
 	CheckAuth();
 
 	$('#doLogin').on('click', doLogin);
@@ -254,5 +281,6 @@ $(document).ready(function(){
 	$(document).on('click', '.showSection', showSection);
 	$(document).on('click', '.showTask', showTask);
 	$(document).on('click', '.backTasks', backTasks);
+	$(document).on('click', '.showInternTask', internTask);
 
 });
