@@ -5,7 +5,6 @@ body{
 	padding: 0;
 	width: 400px;
 	height: 400px;
-	overflow: auto;
 }
 
 ul{
@@ -33,6 +32,9 @@ section{
 
 	&#loadTasks{
 		position: relative;
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
 
 		div#tasks{
 			transform: translateX(0%);
