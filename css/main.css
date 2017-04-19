@@ -66,14 +66,19 @@ section {
         section#loadTasks div#tasks ul li a.externalLink {
           position: absolute;
           right: 0;
-          top: 10px; }
+          top: 15px; }
         section#loadTasks div#tasks ul li .info {
           display: inline-block;
           vertical-align: middle; }
           section#loadTasks div#tasks ul li .info a {
             text-decoration: none;
             color: #000;
-            vertical-align: middle; }
+            vertical-align: middle;
+            display: block; }
+            section#loadTasks div#tasks ul li .info a.title {
+              font-weight: bolder; }
+            section#loadTasks div#tasks ul li .info a.project {
+              font-size: 12px; }
             section#loadTasks div#tasks ul li .info a:hover {
               color: #EB3E35; }
     section#loadTasks div.detail-task {

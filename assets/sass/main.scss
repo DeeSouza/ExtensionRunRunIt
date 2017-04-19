@@ -81,7 +81,7 @@ section{
 					a.externalLink{
 						position: absolute;
 						right: 0;
-						top: 10px;
+						top: 15px;
 					}
 
 				    .info{
@@ -91,6 +91,13 @@ section{
 					    	text-decoration: none;
 					    	color: #000;
 					    	vertical-align: middle;
+							display: block;
+							&.title{
+								font-weight: bolder;
+							}
+							&.project{
+								font-size: 12px;
+							}
 					    	&:hover{
 					    		color: #EB3E35;
 					    	}
