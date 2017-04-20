@@ -15,6 +15,7 @@ $(document).ready(function(){
 	/* Check Authenticate */
 	function CheckAuth(){
 		if(username === null){
+			config.auth = 0;
 			loadTemplate('#loadLogin');
 		}
 		else{
@@ -45,6 +46,7 @@ $(document).ready(function(){
 				labelError.html('Login Inválido!');
 				username.prop('disabled', false);
 				window.localStorage.removeItem('username');
+				loadTemplate('#loadLogin');
 				console.log('Error Logged');
 			}
 		});
@@ -67,7 +69,8 @@ $(document).ready(function(){
 					if(typeof callback === 'function') callback();
 				},
 				error: function(){
-
+					config.auth = 0;
+					loadTemplate('#loadLogin');
 				}
 			});
 		}
@@ -148,6 +151,9 @@ $(document).ready(function(){
 			menuApp.addClass('active');
 			getUser.responseCallback(listTasks);
 			getUser.getDados();
+		}
+		else{
+			menuApp.removeClass('active');
 		}
 	}
 
