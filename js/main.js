@@ -108,6 +108,15 @@ $(document).ready(function(){
 					title 		 = v.title;
 					project_name = v.project_name;
 
+					var inf = {
+						clientName	: v.client_name,
+						id					: v.id,
+						projectName	: v.project_name,
+						teamName		: v.team_name,
+						title				: v.title,
+						typeName		: v.type_name
+					};
+
 					if(v.title.length > 25)
 						title = v.title.substring(0, 25);
 
@@ -115,27 +124,27 @@ $(document).ready(function(){
 						project_name = v.project_name.substring(0, 25);
 
 					if(v.is_working_on){
-						ulContent.append(`<li data-id-task="${v.id}">
+						ulContent.append(`<li data-id-task="${v.id}" class="showTask">
 										 	<i class="fa fa-pause pauseTask"></i>
 											<div class="info">
-												<a href="javascript: void(0)" class="showTask title" title="${v.title}">${title}</a>
-												<a href="javascript: void(0)" class="showTask project" title="${v.project_name}">${project_name}</a>
+												<a href="javascript: void(0)" class="title" title="${v.title}">${title}...</a>
+												<a href="javascript: void(0)" class="project" title="${v.project_name}">${project_name}...</a>
 												<div class="client">${v.client_name}</div>
 												<a href="https://secure.runrun.it/tasks/${v.id}" class="externalLink" target="_blank"><i class="fa fa-external-link"></i></a>
 											</div>
-										 </li>`);
-					}
-					else{
-						ulContent.append(`<li data-id-task="${v.id}">
+										 </li>`).children(`li[data-id-task=${v.id}]`).data("info",inf);
+					}else{
+						ulContent.append(`<li data-id-task="${v.id}" class="showTask">
 										 	<i class="fa fa-play playTask"></i>
-											<div class="info">
-												<a href="javascript: void(0)" class="showTask title" title="${v.title}">${title}</a>
-												<a href="javascript: void(0)" class="showTask project" title="${v.project_name}">${project_name}</a>
+											<div class="showTask info">
+												<a href="javascript: void(0)" class="title" title="${v.title}">${title}...</a>
+												<a href="javascript: void(0)" class="project" title="${v.project_name}">${project_name}...</a>
 												<div class="client">${v.client_name}</div>
 												<a href="https://secure.runrun.it/tasks/${v.id}" class="externalLink" target="_blank"><i class="fa fa-external-link"></i></a>
 											</div>
-										 </li>`);
+										 </li>`).children(`li[data-id-task=${v.id}]`).data("info",inf);
 					}
+
 					console.log('List Tasks');
 				});
 			}
@@ -225,9 +234,60 @@ $(document).ready(function(){
 		});
 	}
 
+	/* Delivers current Task */
+	function deliverTask(){
+		if($('.detail-task').hasClass('off-screen')){
+			// do nothing
+		}else{
+			$('.detail-task').addClass('off-screen');
+			$('.alert').addClass('active');
+		}
+
+		function cancealingDelivery(){
+			if($('.detail-task').hasClass('off-screen')){
+				$('.detail-task').removeClass('off-screen');
+				$('.alert').removeClass('active');
+			}
+		}
+
+		function deliver(){
+			// TO-DO
+			console.log('Delivering...');
+		}
+
+		$('.alert button.deliver').click(deliver);
+		$('.alert button.cancel').click(cancealingDelivery);
+	}
+
 	/* Show Description From Task */
 	function showTask(){
+
+		$('#list-tasks>li').removeClass('selected');
+
 		var idTask = $(this).closest('li').data('id-task');
+		var info = $(this).closest('li').data('info');
+
+		$(this).closest('li').addClass('selected');
+
+		console.log(info);
+
+		if(info.title.length > 17){
+			$('.detail-task > .task-title').text(info.id+" - "+info.title.substring(0,15)+"...");
+		}else{
+			$('.detail-task > .task-title').text(info.id+" - "+info.title);
+		}
+		$('.detail-task > .task-title').attr("title",info.id+" - "+info.title);
+
+
+		if(info.projectName.length > 24){
+			$('.detail-task > .project-name').text(info.projectName.substring(0,23)+"...");
+		}else{
+			$('.detail-task > .project-name').text(info.projectName);
+		}
+		$('.detail-task > .project-name').attr("title",info.projectName);
+
+		$('.detail-task > .client-name').text(info.clientName);
+		$('.detail-task > .client-name').attr("title",info.clientName);
 
 		$.ajax({
 			type: "GET",
@@ -236,6 +296,7 @@ $(document).ready(function(){
 
 			},
 			success: function(response){
+				console.log(response);
 				console.log('Load Description Task');
 				$('#tasks, .detail-task').addClass('active');
 				$('.detail-task > .description').html(response.description);
@@ -297,6 +358,8 @@ $(document).ready(function(){
 	$(document).on('click', '.showSection', showSection);
 	$(document).on('click', '.showTask', showTask);
 	$(document).on('click', '.backTasks', backTasks);
+	$(document).on('click', '.backTasks2', backTasks);
 	$(document).on('click', '.showInternTask', internTask);
+	$(document).on('click', '.deliver', deliverTask);
 
 });

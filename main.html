@@ -2,7 +2,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Runrun.It</title>
-	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css' />
+	<!-- <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css' /> -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet" type='text/css'>
 	<link href='css/main.css' rel='stylesheet' type='text/css' />
 </head>
 <body>
@@ -30,7 +31,11 @@
 		</div>
 
 		<div class="detail-task">
-			<i class="fa fa-long-arrow-left backTasks"></i>
+			<!-- <i class="fa fa-long-arrow-left backTasks"></i> -->
+			<i class="fa fa-chevron-left backTasks2" aria-hidden="true"></i>
+			<h2 class="task-title"   title=""></h2>
+			<h4 class="project-name" title=""></h4>
+			<h5 class="client-name"  title=""></h5>
 			<ul>
 				<li><i class="fa fa-file"></i><a href="#showDesc" class="showInternTask">Descrição</a></li>
 				<li><i class="fa fa-paperclip"></i><a href="#showAtta" class="showInternTask">Anexos</a></li>
@@ -39,6 +44,14 @@
 			<div class="attachments tabIntern hide" id="showAtta">
 				<ul></ul>
 			</div>
+			<button id="deliver" class="deliver">ENTREGAR</button>
+		</div>
+
+		<div class="alert">
+			<h2><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Alerta!</h2>
+			<p>Tem certeza que deseja entregar esta tarefa?</p>
+			<button class="deliver" name="button">ENTREGAR</button>
+			<button class="cancel"  name="button">CANCELAR</button>
 		</div>
 	</section>
 
