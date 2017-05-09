@@ -11,6 +11,7 @@ body{
 	padding: 0;
 	width: 400px;
 	height: 100%;
+	position: relative;
 }
 
 ul{
@@ -29,7 +30,6 @@ header{
 }
 
 section{
-	margin-top: 10px;
 	display: none;
 
 	&.active{
@@ -39,7 +39,6 @@ section{
 	&#loadTasks{
 		position: relative;
 		height: 480px;
-		// background-color: green;
 
 		button{
 			position: relative;
@@ -189,28 +188,28 @@ section{
 				background-color: transparent;
 			}
 
-			>h2,h4,h5{
+			> h2, h4, h5{
 				margin: 0;
 			}
 
-			>h4,h5{
+			> h4, h5{
 				margin: 0 0 0 30px;
 			}
 
-			>h2{
+			> h2{
 				display: inline;
 				font-weight: 100;
 				font-size: 2.3em;
 				color: #333;
 			}
 
-			>h4{
+			> h4{
 				font-weight: 400;
 				font-size: 1.8em;
 				color: #666;
 			}
 
-			>h5{
+			> h5{
 				font-weight: 400;
 				font-size: 1.2em;
 				color: #999;
@@ -483,7 +482,9 @@ section{
 
 nav#menuApp{
 	background-color: #5a5a5a;
-	position: relative;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 	display: none;
 	&.active{
 		display: block;
@@ -493,8 +494,7 @@ nav#menuApp{
 		border-top: 2px solid #FFF;
 		li{
 			display: inline-block;
-			border-color: #FFF;
-			line-height: 50px;
+			border-top: 1px solid #5a5a5a;
 			height: 50px;
 			width: 33.3%;
 			text-align: center;
@@ -505,25 +505,20 @@ nav#menuApp{
 			font-family: "Roboto";
 			position: relative;
 			transition: all 0.3s ease-in-out;
+			box-sizing: border-box;
+    		padding: 10px 0px;
+			i{
+				margin-bottom: 3px;
+			}
 			&:not(.active):hover{
 				background-color: #FFF;
 				color: #EB3E35;
+				border-top: 1px solid #f9c2bf;
 			}
-			&:before{
-				content: "";
-				width: 10px;
-				height: 10px;
-				background-color: #5a5a5a;
-				transform: rotateZ(45deg);
-				position: absolute;
-				bottom: -5px;
-				left: 0;
-				right: 0;
-				display: none;
-				margin: auto;
-			}
-			&.active:before{
-				display: block;
+			&.active{
+				background-color: #FFF;
+				color: #EB3E35;
+				border-top: 1px solid #f9c2bf;
 			}
 		}
 	}

@@ -167,7 +167,8 @@ $(document).ready(function(){
 	}
 
 	/* Play in Task */
-	function playTask(){
+	function playTask(event){
+		event.stopPropagation();
 		var el 	   = $(this);
 		var idTask = $(this).parent().data('id-task');
 
@@ -188,7 +189,8 @@ $(document).ready(function(){
 	}
 
 	/* Pause in Task */
-	function pauseTask(){
+	function pauseTask(event){
+		event.stopPropagation();
 		var el 	   = $(this);
 		var idTask = $(this).parent().data('id-task');
 
@@ -261,33 +263,32 @@ $(document).ready(function(){
 
 	/* Show Description From Task */
 	function showTask(){
-
 		$('#list-tasks>li').removeClass('selected');
 
-		var idTask = $(this).closest('li').data('id-task');
-		var info = $(this).closest('li').data('info');
+		var idTask 	= $(this).closest('li').data('id-task');
+		var info 	= $(this).closest('li').data('info');
 
 		$(this).closest('li').addClass('selected');
 
-		console.log(info);
-
 		if(info.title.length > 17){
-			$('.detail-task > .task-title').text(info.id+" - "+info.title.substring(0,15)+"...");
-		}else{
-			$('.detail-task > .task-title').text(info.id+" - "+info.title);
+			$('.detail-task > .task-title').text(info.id + " - " + info.title.substring(0,15)+"...");
 		}
-		$('.detail-task > .task-title').attr("title",info.id+" - "+info.title);
+		else{
+			$('.detail-task > .task-title').text(info.id + " - " + info.title);
+		}
 
+		$('.detail-task > .task-title').attr("title",info.id + " - " + info.title);
 
 		if(info.projectName.length > 24){
-			$('.detail-task > .project-name').text(info.projectName.substring(0,23)+"...");
-		}else{
+			$('.detail-task > .project-name').text(info.projectName.substring(0,23) + "...");
+		}
+		else{
 			$('.detail-task > .project-name').text(info.projectName);
 		}
-		$('.detail-task > .project-name').attr("title",info.projectName);
 
+		$('.detail-task > .project-name').attr("title", info.projectName);
 		$('.detail-task > .client-name').text(info.clientName);
-		$('.detail-task > .client-name').attr("title",info.clientName);
+		$('.detail-task > .client-name').attr("title", info.clientName);
 
 		$.ajax({
 			type: "GET",
@@ -296,7 +297,6 @@ $(document).ready(function(){
 
 			},
 			success: function(response){
-				console.log(response);
 				console.log('Load Description Task');
 				$('#tasks, .detail-task').addClass('active');
 				$('.detail-task > .description').html(response.description);
