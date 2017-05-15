@@ -36,6 +36,13 @@ section{
 		display: block;
 	}
 
+	.truncate{
+		width: 240px;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
 	&#loadTasks{
 		position: relative;
 		height: 480px;
@@ -137,6 +144,8 @@ section{
 				    .info{
 				    	display: inline-block;
 				    	vertical-align: middle;
+				    	width: 260px;
+
 					    a{
 					    	text-decoration: none;
 					    	color: #000;
@@ -197,22 +206,25 @@ section{
 			}
 
 			> h2{
-				display: inline;
+				display: inline-block;
 				font-weight: 100;
 				font-size: 2.3em;
 				color: #333;
+				width: 294px;
 			}
 
 			> h4{
 				font-weight: 400;
 				font-size: 1.8em;
 				color: #666;
+				width: 294px;
 			}
 
 			> h5{
 				font-weight: 400;
 				font-size: 1.2em;
 				color: #999;
+				width: 294px;
 			}
 
 			&.active{

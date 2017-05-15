@@ -118,17 +118,17 @@ $(document).ready(function(){
 					};
 
 					if(v.title.length > 25)
-						title = v.title.substring(0, 25);
+						title = v.title;
 
 					if(v.project_name.length > 25)
-						project_name = v.project_name.substring(0, 25);
+						project_name = v.project_name;
 
 					if(v.is_working_on){
 						ulContent.append(`<li data-id-task="${v.id}" class="showTask">
 										 	<i class="fa fa-pause pauseTask"></i>
 											<div class="info">
-												<a href="javascript: void(0)" class="title" title="${v.title}">${title}...</a>
-												<a href="javascript: void(0)" class="project" title="${v.project_name}">${project_name}...</a>
+												<a href="javascript: void(0)" class="title truncate" title="${v.title}">${title}</a>
+												<a href="javascript: void(0)" class="project truncate" title="${v.project_name}">${project_name}</a>
 												<div class="client">${v.client_name}</div>
 												<a href="https://secure.runrun.it/tasks/${v.id}" class="externalLink" target="_blank"><i class="fa fa-external-link"></i></a>
 											</div>
@@ -137,8 +137,8 @@ $(document).ready(function(){
 						ulContent.append(`<li data-id-task="${v.id}" class="showTask">
 										 	<i class="fa fa-play playTask"></i>
 											<div class="showTask info">
-												<a href="javascript: void(0)" class="title" title="${v.title}">${title}...</a>
-												<a href="javascript: void(0)" class="project" title="${v.project_name}">${project_name}...</a>
+												<a href="javascript: void(0)" class="title truncate" title="${v.title}">${title}</a>
+												<a href="javascript: void(0)" class="project truncate" title="${v.project_name}">${project_name}</a>
 												<div class="client">${v.client_name}</div>
 												<a href="https://secure.runrun.it/tasks/${v.id}" class="externalLink" target="_blank"><i class="fa fa-external-link"></i></a>
 											</div>
@@ -271,7 +271,7 @@ $(document).ready(function(){
 		$(this).closest('li').addClass('selected');
 
 		if(info.title.length > 17){
-			$('.detail-task > .task-title').text(info.id + " - " + info.title.substring(0,15)+"...");
+			$('.detail-task > .task-title').text(info.id + " - " + info.title);
 		}
 		else{
 			$('.detail-task > .task-title').text(info.id + " - " + info.title);
@@ -280,7 +280,7 @@ $(document).ready(function(){
 		$('.detail-task > .task-title').attr("title",info.id + " - " + info.title);
 
 		if(info.projectName.length > 24){
-			$('.detail-task > .project-name').text(info.projectName.substring(0,23) + "...");
+			$('.detail-task > .project-name').text(info.projectName);
 		}
 		else{
 			$('.detail-task > .project-name').text(info.projectName);
