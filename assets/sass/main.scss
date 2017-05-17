@@ -48,8 +48,12 @@ section{
 		height: 480px;
 
 		button{
-			position: relative;
-			width: 100%;
+			position: absolute;
+			width: 90%;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
 			height: 44px;
 			border: none;
 			font-weight: 400;
@@ -59,6 +63,10 @@ section{
 			cursor: pointer;
 			outline: none;
 			transition: .25s cubic-bezier(0, 0, 0.2, 1) background-color,transform;
+
+			i.fa-paper-plane{
+				margin-right: 5px;
+			}
 
 			&:hover{
 				color: white;
@@ -79,6 +87,7 @@ section{
 			&.active{
 				transform: translateX(-100%);
 			}
+
 			ul{
 				position: relative;
 				height: 100%;
@@ -90,7 +99,7 @@ section{
 				    position: relative;
 				    cursor: pointer;
 				    font-family: "Roboto";
-				    border-bottom: 1px dashed #B5B5B5;
+				    border-bottom: 1px solid #ececec;
 				    font-size: 14px;
 				    transition: all 0.25s ease-in;
 						background-color: #fff;
@@ -106,8 +115,8 @@ section{
 							}
 						}
 
-				    i{
-			    	    padding: 8px 20px;
+				    > i{
+			    	    padding: 14px 20px;
 			    	    margin-right: 9px;
 			    	    box-sizing: border-box;
 			    	    font-size: 18px;
@@ -115,17 +124,22 @@ section{
 			    	    transition: all 0.25s ease-in;
 			    	    vertical-align: middle;
 			    	    &.fa-play{
-				    	    color: #30cc34;
-					    	border: 1px solid #30cc34;
+							color: #FFF;
+							border: 1px solid #30cc34;
+							background-color: #30cc34;
 				    	    &:hover{
-				    	    	background-color: #dffbdf;
+				    	    	background-color: #FFF;
+								color: #30cc34;
 				    	    }
 					    }
+
 					    &.fa-pause{
-		    	    	    color: #EB3E35;
+		    	    	    color: #FFFFFF;
 		    		    	border: 1px solid #EB3E35;
+							background-color: #EB3E35;
 		    		    	&:hover{
-				    	    	background-color: #ffe9e8;
+								background-color: #FFFFFF;
+    							color: #EB3E35;
 				    	    }
 					    }
 					    &.fa-clock-o{
@@ -137,8 +151,14 @@ section{
 
 					a.externalLink{
 						position: absolute;
-						right: 0;
-						top: 15px;
+					    right: 20px;
+					    top: 0;
+					    bottom: 0;
+					    margin: auto;
+					    height: 16px;
+						> i{
+							font-size: 18px;
+						}
 					}
 
 				    .info{
@@ -186,7 +206,7 @@ section{
 			box-sizing: border-box;
 			height: 480px;
 
-			>i.backTasks2{
+			> i.backTasks{
 				font-size: 2em;
 				margin: 0 4px 0 0;
 				color: #eb3e35;
@@ -199,10 +219,6 @@ section{
 
 			> h2, h4, h5{
 				margin: 0;
-			}
-
-			> h4, h5{
-				margin: 0 0 0 30px;
 			}
 
 			> h2{
@@ -237,56 +253,72 @@ section{
 				}
 			}
 
-			i.backTasks{
-				position: absolute;
-				left: 10px;
-				top: 0;
-				text-align: center;
-				margin: auto;
-				height: 25px;
-				width: 40px;
-				cursor: pointer;
-				background: #eb3e35;
-				color: #FFF;
-				box-sizing: border-box;
-				font-size: 26px;
-				opacity: 1;
-				transition: all 0.2s ease-in;
-				&:hover{
-					opacity: 0.8;
+			a{
+				&.open-options{
+					position: absolute;
+				    top: 30px;
+				    right: 20px;
+					> img{
+						height: 20px;
+					}
 				}
 			}
 
-			> ul{
-				margin-top: 12px;
-				font-size: 16px;
-				text-align: center;
+			> ul.menuOptions{
+				position: absolute;
+				right: 27px;
+    			top: 60px;
+			    background-color: #ddd;
+			    padding: 0;
+				width: 150px;
+			    box-sizing: border-box;
+				visibility: hidden;
+				opacity: 0;
+				transition: all 0.25s ease-in-out;
+
+				&.active{
+					opacity: 1;
+					visibility: visible;
+				}
+
 				li{
-					display: inline-block;
-					padding: 5px 15px;
-					background-color: #e0e0e0;
+					height: 35px;
+				    line-height: 35px;
+				    border-bottom: 1px solid #cac9c9;
+					transition: all 0.25s ease-in;
+
+					&:hover{
+						background-color: #cecece;
+					}
+
+					&:last-child{
+						border-bottom: 0px;
+					}
+
 					i{
 						margin-right: 5px;
-						vertical-align: middle;
-						color: #eb3e35;
 					}
+
 					a{
 						text-decoration: none;
-						color: #5a5a5a;
-						vertical-align: middle;
-						font-weight: bold;
+					    color: #5a5a5a;
+					    vertical-align: middle;
+					    font-weight: 500;
+					    display: block;
+					    text-indent: 5px;
+						font-size: 14px;
 					}
 				}
 			}
 
 			.tabIntern{
 				text-align: left;
-				padding: 10px 20px;
-				margin: 10px 0;
+				padding: 10px 0px;
+				margin: 0;
 				box-sizing: border-box;
-				font-size: 13px;
 				overflow: auto;
-				height: 250px;
+				height: 320px;
+
 				&::-webkit-scrollbar{
 					width: 4px;
 					height: 4px;
@@ -306,6 +338,7 @@ section{
 				&::-webkit-scrollbar-thumb:hover{
 					background: #FFF;
 				}
+
 				&::-webkit-scrollbar-thumb:active{
 					background: #000;
 				}
@@ -327,12 +360,16 @@ section{
 				&::-webkit-scrollbar-corner{
 					background: transparent;
 				}
+
 				&.hide{
 					display: none;
 				}
-				&.description{
 
+				&.description{
+					font-size: 14px;
+					font-family: "Roboto";
 				}
+
 				&.attachments{
 					ul{
 						list-style: none;
@@ -391,7 +428,7 @@ section{
 				font-size: 16px;
 			}
 
-			>button{
+			> button{
 				margin: 0 0 10px 0;
 			}
 
