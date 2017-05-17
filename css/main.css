@@ -54,7 +54,7 @@ section {
       transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, -webkit-transform;
       transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, transform;
       transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, transform, -webkit-transform; }
-      section#loadTasks button i.fa-paper-plane {
+      section#loadTasks button i.fa-paper-plane, section#loadTasks button .fa-ban {
         margin-right: 5px; }
       section#loadTasks button:hover {
         color: white;
@@ -320,11 +320,11 @@ section {
           padding: 0 10px 0; }
       section#loadTasks div.alert p {
         font-size: 16px; }
-      section#loadTasks div.alert > button {
-        margin: 0 0 10px 0; }
-      section#loadTasks div.alert button.deliver:hover {
-        background-color: #39f;
-        color: white; }
+      section#loadTasks div.alert button.deliver {
+        bottom: 50px; }
+        section#loadTasks div.alert button.deliver:hover {
+          background-color: #39f;
+          color: white; }
       section#loadTasks div.alert button.cancel {
         background-color: #eb3e35;
         color: white; }
