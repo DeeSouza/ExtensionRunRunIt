@@ -253,8 +253,23 @@ $(document).ready(function(){
 		}
 
 		function deliver(){
-			// TO-DO
-			console.log('Delivering...');
+			var info = $(this).data('info');
+			var _url = urlAPI + urlTasks + '/' + info.id + '/close';
+			console.log("_url ",_url);
+			
+			$.ajax({
+				type: "POST",
+				url: _url,
+				beforeSend: function(){
+
+				},
+				success: function(response){
+
+				},
+				error: function(){
+
+				}
+			});
 		}
 
 		$('.alert button.deliver').click(deliver);
@@ -269,6 +284,7 @@ $(document).ready(function(){
 		var info 	= $(this).closest('li').data('info');
 
 		$(this).closest('li').addClass('selected');
+		$('.alert button.deliver').data('info',info);
 
 		if(info.title.length > 17){
 			$('.detail-task > .task-title').text(info.id + " - " + info.title);

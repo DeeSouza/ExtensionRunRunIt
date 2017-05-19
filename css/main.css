@@ -285,7 +285,7 @@ section {
         color: white;
         font-size: 2.1em;
         font-family: 'Roboto';
-        font-weight: 400; }
+        font-weight: 100; }
         section#loadTasks div.alert h2 > i {
           padding: 0 10px 0; }
       section#loadTasks div.alert p {
