@@ -366,6 +366,11 @@ $(document).ready(function(){
 		$(idTab).removeClass('hide');
 	}
 
+	/* Show Menu Options */
+	$('.open-options').on('click', function(){
+		$('.menuOptions').toggleClass('active');
+	});
+
 	CheckAuth();
 
 	$('#doLogin').on('click', doLogin);
@@ -374,7 +379,6 @@ $(document).ready(function(){
 	$(document).on('click', '.showSection', showSection);
 	$(document).on('click', '.showTask', showTask);
 	$(document).on('click', '.backTasks', backTasks);
-	$(document).on('click', '.backTasks2', backTasks);
 	$(document).on('click', '.showInternTask', internTask);
 	$(document).on('click', '.deliver', deliverTask);
 

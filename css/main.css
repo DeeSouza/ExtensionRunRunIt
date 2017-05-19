@@ -37,8 +37,12 @@ section {
     position: relative;
     height: 480px; }
     section#loadTasks button {
-      position: relative;
-      width: 100%;
+      position: absolute;
+      width: 90%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
       height: 44px;
       border: none;
       font-weight: 400;
@@ -47,22 +51,29 @@ section {
       color: #666;
       cursor: pointer;
       outline: none;
-      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, transform; }
+      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, -webkit-transform;
+      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, transform;
+      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, transform, -webkit-transform; }
+      section#loadTasks button i.fa-paper-plane, section#loadTasks button .fa-ban {
+        margin-right: 5px; }
       section#loadTasks button:hover {
         color: white;
         background-color: #eb3e35; }
       section#loadTasks button:active {
-        -ms-transform: translate(0, 2px);
-            transform: translate(0, 2px); }
+        -webkit-transform: translate(0, 2px);
+            -ms-transform: translate(0, 2px);
+                transform: translate(0, 2px); }
     section#loadTasks div#tasks {
       position: relative;
-      -ms-transform: translateX(0%);
-          transform: translateX(0%);
+      -webkit-transform: translateX(0%);
+          -ms-transform: translateX(0%);
+              transform: translateX(0%);
       transition: all 0.3s ease-in;
       height: 100%; }
       section#loadTasks div#tasks.active {
-        -ms-transform: translateX(-100%);
-            transform: translateX(-100%); }
+        -webkit-transform: translateX(-100%);
+            -ms-transform: translateX(-100%);
+                transform: translateX(-100%); }
       section#loadTasks div#tasks ul {
         position: relative;
         height: 100%;
@@ -73,7 +84,7 @@ section {
           position: relative;
           cursor: pointer;
           font-family: "Roboto";
-          border-bottom: 1px dashed #B5B5B5;
+          border-bottom: 1px solid #ececec;
           font-size: 14px;
           transition: all 0.25s ease-in;
           background-color: #fff; }
@@ -83,31 +94,40 @@ section {
             background-color: #eee; }
             section#loadTasks div#tasks ul li.selected:hover {
               background-color: #e6e6e6; }
-          section#loadTasks div#tasks ul li i {
-            padding: 8px 20px;
+          section#loadTasks div#tasks ul li > i {
+            padding: 14px 20px;
             margin-right: 9px;
             box-sizing: border-box;
             font-size: 18px;
             border-radius: 5px;
             transition: all 0.25s ease-in;
             vertical-align: middle; }
-            section#loadTasks div#tasks ul li i.fa-play {
-              color: #30cc34;
-              border: 1px solid #30cc34; }
-              section#loadTasks div#tasks ul li i.fa-play:hover {
-                background-color: #dffbdf; }
-            section#loadTasks div#tasks ul li i.fa-pause {
-              color: #EB3E35;
-              border: 1px solid #EB3E35; }
-              section#loadTasks div#tasks ul li i.fa-pause:hover {
-                background-color: #ffe9e8; }
-            section#loadTasks div#tasks ul li i.fa-clock-o {
+            section#loadTasks div#tasks ul li > i.fa-play {
+              color: #FFF;
+              border: 1px solid #30cc34;
+              background-color: #30cc34; }
+              section#loadTasks div#tasks ul li > i.fa-play:hover {
+                background-color: #FFF;
+                color: #30cc34; }
+            section#loadTasks div#tasks ul li > i.fa-pause {
+              color: #FFFFFF;
+              border: 1px solid #EB3E35;
+              background-color: #EB3E35; }
+              section#loadTasks div#tasks ul li > i.fa-pause:hover {
+                background-color: #FFFFFF;
+                color: #EB3E35; }
+            section#loadTasks div#tasks ul li > i.fa-clock-o {
               color: #000;
               border: 1px solid #000; }
           section#loadTasks div#tasks ul li a.externalLink {
             position: absolute;
-            right: 0;
-            top: 15px; }
+            right: 20px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            height: 16px; }
+            section#loadTasks div#tasks ul li a.externalLink > i {
+              font-size: 18px; }
           section#loadTasks div#tasks ul li .info {
             display: inline-block;
             vertical-align: middle;
@@ -136,12 +156,13 @@ section {
       overflow: hidden;
       background-color: #FFF;
       transition: all 0.3s ease-in;
-      -ms-transform: translateX(100%);
-          transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+          -ms-transform: translateX(100%);
+              transform: translateX(100%);
       padding: 20px;
       box-sizing: border-box;
       height: 480px; }
-      section#loadTasks div.detail-task > i.backTasks2 {
+      section#loadTasks div.detail-task > i.backTasks {
         font-size: 2em;
         margin: 0 4px 0 0;
         color: #eb3e35;
@@ -152,8 +173,6 @@ section {
         background-color: transparent; }
       section#loadTasks div.detail-task > h2, section#loadTasks div.detail-task h4, section#loadTasks div.detail-task h5 {
         margin: 0; }
-      section#loadTasks div.detail-task > h4, section#loadTasks div.detail-task h5 {
-        margin: 0 0 0 30px; }
       section#loadTasks div.detail-task > h2 {
         display: inline-block;
         font-weight: 100;
@@ -173,53 +192,59 @@ section {
       section#loadTasks div.detail-task.active {
         opacity: 1;
         visibility: visible;
-        -ms-transform: translateX(0%);
-            transform: translateX(0%); }
+        -webkit-transform: translateX(0%);
+            -ms-transform: translateX(0%);
+                transform: translateX(0%); }
         section#loadTasks div.detail-task.active.off-screen {
-          -ms-transform: translateX(-100%);
-              transform: translateX(-100%); }
-      section#loadTasks div.detail-task i.backTasks {
+          -webkit-transform: translateX(-100%);
+              -ms-transform: translateX(-100%);
+                  transform: translateX(-100%); }
+      section#loadTasks div.detail-task a.open-options {
         position: absolute;
-        left: 10px;
-        top: 0;
-        text-align: center;
-        margin: auto;
-        height: 25px;
-        width: 40px;
-        cursor: pointer;
-        background: #eb3e35;
-        color: #FFF;
+        top: 30px;
+        right: 20px; }
+        section#loadTasks div.detail-task a.open-options > img {
+          height: 20px; }
+      section#loadTasks div.detail-task > ul.menuOptions {
+        position: absolute;
+        right: 27px;
+        top: 60px;
+        background-color: #ddd;
+        padding: 0;
+        width: 150px;
         box-sizing: border-box;
-        font-size: 26px;
-        opacity: 1;
-        transition: all 0.2s ease-in; }
-        section#loadTasks div.detail-task i.backTasks:hover {
-          opacity: 0.8; }
-      section#loadTasks div.detail-task > ul {
-        margin-top: 12px;
-        font-size: 16px;
-        text-align: center; }
-        section#loadTasks div.detail-task > ul li {
-          display: inline-block;
-          padding: 5px 15px;
-          background-color: #e0e0e0; }
-          section#loadTasks div.detail-task > ul li i {
-            margin-right: 5px;
-            vertical-align: middle;
-            color: #eb3e35; }
-          section#loadTasks div.detail-task > ul li a {
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.25s ease-in-out; }
+        section#loadTasks div.detail-task > ul.menuOptions.active {
+          opacity: 1;
+          visibility: visible; }
+        section#loadTasks div.detail-task > ul.menuOptions li {
+          height: 35px;
+          line-height: 35px;
+          border-bottom: 1px solid #cac9c9;
+          transition: all 0.25s ease-in; }
+          section#loadTasks div.detail-task > ul.menuOptions li:hover {
+            background-color: #cecece; }
+          section#loadTasks div.detail-task > ul.menuOptions li:last-child {
+            border-bottom: 0px; }
+          section#loadTasks div.detail-task > ul.menuOptions li i {
+            margin-right: 5px; }
+          section#loadTasks div.detail-task > ul.menuOptions li a {
             text-decoration: none;
             color: #5a5a5a;
             vertical-align: middle;
-            font-weight: bold; }
+            font-weight: 500;
+            display: block;
+            text-indent: 5px;
+            font-size: 14px; }
       section#loadTasks div.detail-task .tabIntern {
         text-align: left;
-        padding: 10px 20px;
-        margin: 10px 0;
+        padding: 10px 0px;
+        margin: 0;
         box-sizing: border-box;
-        font-size: 13px;
         overflow: auto;
-        height: 250px; }
+        height: 320px; }
         section#loadTasks div.detail-task .tabIntern::-webkit-scrollbar {
           width: 4px;
           height: 4px; }
@@ -246,6 +271,9 @@ section {
           background: transparent; }
         section#loadTasks div.detail-task .tabIntern.hide {
           display: none; }
+        section#loadTasks div.detail-task .tabIntern.description {
+          font-size: 14px;
+          font-family: "Roboto"; }
         section#loadTasks div.detail-task .tabIntern.attachments ul {
           list-style: none;
           padding: 0;
@@ -266,16 +294,18 @@ section {
       overflow: hidden;
       background-color: transparent;
       transition: 0.3s ease-in all;
-      -ms-transform: translateX(100%);
-          transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+          -ms-transform: translateX(100%);
+              transform: translateX(100%);
       padding: 20px;
       box-sizing: border-box;
       height: 480px; }
       section#loadTasks div.alert.active {
         opacity: 1;
         visibility: visible;
-        -ms-transform: translateX(0%);
-            transform: translateX(0%); }
+        -webkit-transform: translateX(0%);
+            -ms-transform: translateX(0%);
+                transform: translateX(0%); }
       section#loadTasks div.alert h2 {
         margin: 0;
         background-color: #eb3e35;
@@ -290,11 +320,11 @@ section {
           padding: 0 10px 0; }
       section#loadTasks div.alert p {
         font-size: 16px; }
-      section#loadTasks div.alert > button {
-        margin: 0 0 10px 0; }
-      section#loadTasks div.alert button.deliver:hover {
-        background-color: #39f;
-        color: white; }
+      section#loadTasks div.alert button.deliver {
+        bottom: 50px; }
+        section#loadTasks div.alert button.deliver:hover {
+          background-color: #39f;
+          color: white; }
       section#loadTasks div.alert button.cancel {
         background-color: #eb3e35;
         color: white; }
