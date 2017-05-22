@@ -51,29 +51,24 @@ section {
       color: #666;
       cursor: pointer;
       outline: none;
-      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, -webkit-transform;
-      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, transform;
-      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, transform, -webkit-transform; }
+      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, transform; }
       section#loadTasks button i.fa-paper-plane, section#loadTasks button .fa-ban {
         margin-right: 5px; }
       section#loadTasks button:hover {
         color: white;
         background-color: #eb3e35; }
       section#loadTasks button:active {
-        -webkit-transform: translate(0, 2px);
-            -ms-transform: translate(0, 2px);
-                transform: translate(0, 2px); }
+        -ms-transform: translate(0, 2px);
+            transform: translate(0, 2px); }
     section#loadTasks div#tasks {
       position: relative;
-      -webkit-transform: translateX(0%);
-          -ms-transform: translateX(0%);
-              transform: translateX(0%);
+      -ms-transform: translateX(0%);
+          transform: translateX(0%);
       transition: all 0.3s ease-in;
       height: 100%; }
       section#loadTasks div#tasks.active {
-        -webkit-transform: translateX(-100%);
-            -ms-transform: translateX(-100%);
-                transform: translateX(-100%); }
+        -ms-transform: translateX(-100%);
+            transform: translateX(-100%); }
       section#loadTasks div#tasks ul {
         position: relative;
         height: 100%;
@@ -156,29 +151,31 @@ section {
       overflow: hidden;
       background-color: #FFF;
       transition: all 0.3s ease-in;
-      -webkit-transform: translateX(100%);
-          -ms-transform: translateX(100%);
-              transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
       padding: 20px;
       box-sizing: border-box;
       height: 480px; }
       section#loadTasks div.detail-task > i.backTasks {
+        position: absolute;
         font-size: 2em;
         margin: 0 4px 0 0;
-        color: #eb3e35;
+        color: #666;
         cursor: pointer;
         height: 26px;
         width: 26px;
         text-align: center;
-        background-color: transparent; }
+        background-color: transparent;
+        top: 30px; }
       section#loadTasks div.detail-task > h2, section#loadTasks div.detail-task h4, section#loadTasks div.detail-task h5 {
         margin: 0; }
-      section#loadTasks div.detail-task > h2 {
+      section#loadTasks div.detail-task > h2.task-title {
         display: inline-block;
         font-weight: 100;
         font-size: 2.3em;
         color: #333;
-        width: 294px; }
+        width: 260px;
+        padding: 0 0 0 37px; }
       section#loadTasks div.detail-task > h4 {
         font-weight: 400;
         font-size: 1.8em;
@@ -192,13 +189,11 @@ section {
       section#loadTasks div.detail-task.active {
         opacity: 1;
         visibility: visible;
-        -webkit-transform: translateX(0%);
-            -ms-transform: translateX(0%);
-                transform: translateX(0%); }
+        -ms-transform: translateX(0%);
+            transform: translateX(0%); }
         section#loadTasks div.detail-task.active.off-screen {
-          -webkit-transform: translateX(-100%);
-              -ms-transform: translateX(-100%);
-                  transform: translateX(-100%); }
+          -ms-transform: translateX(-100%);
+              transform: translateX(-100%); }
       section#loadTasks div.detail-task a.open-options {
         position: absolute;
         top: 30px;
@@ -272,6 +267,7 @@ section {
         section#loadTasks div.detail-task .tabIntern.hide {
           display: none; }
         section#loadTasks div.detail-task .tabIntern.description {
+          box-sizing: border-box;
           font-size: 14px;
           font-family: "Roboto"; }
         section#loadTasks div.detail-task .tabIntern.attachments ul {
@@ -294,18 +290,16 @@ section {
       overflow: hidden;
       background-color: transparent;
       transition: 0.3s ease-in all;
-      -webkit-transform: translateX(100%);
-          -ms-transform: translateX(100%);
-              transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
       padding: 20px;
       box-sizing: border-box;
       height: 480px; }
       section#loadTasks div.alert.active {
         opacity: 1;
         visibility: visible;
-        -webkit-transform: translateX(0%);
-            -ms-transform: translateX(0%);
-                transform: translateX(0%); }
+        -ms-transform: translateX(0%);
+            transform: translateX(0%); }
       section#loadTasks div.alert h2 {
         margin: 0;
         background-color: #eb3e35;

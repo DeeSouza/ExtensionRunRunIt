@@ -207,26 +207,32 @@ section{
 			height: 480px;
 
 			> i.backTasks{
+				position: absolute;
+
 				font-size: 2em;
 				margin: 0 4px 0 0;
-				color: #eb3e35;
+				color: #666;
 				cursor: pointer;
 				height: 26px;
 				width: 26px;
 				text-align: center;
 				background-color: transparent;
+
+				top: 30px;
 			}
 
 			> h2, h4, h5{
 				margin: 0;
 			}
 
-			> h2{
+			> h2.task-title{
 				display: inline-block;
 				font-weight: 100;
 				font-size: 2.3em;
 				color: #333;
-				width: 294px;
+				width: 260px;
+
+				padding: 0 0 0 37px;
 			}
 
 			> h4{
@@ -366,6 +372,7 @@ section{
 				}
 
 				&.description{
+					box-sizing: border-box;
 					font-size: 14px;
 					font-family: "Roboto";
 				}
