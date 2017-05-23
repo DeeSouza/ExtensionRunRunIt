@@ -110,11 +110,12 @@ $(document).ready(function(){
 
 					var inf = {
 						clientName	: v.client_name,
-						id					: v.id,
+						id			: v.id,
 						projectName	: v.project_name,
-						teamName		: v.team_name,
-						title				: v.title,
-						typeName		: v.type_name
+						teamName	: v.team_name,
+						title		: v.title,
+						typeName	: v.type_name,
+						prog 		: v.time_progress
 					};
 
 					if(v.title.length > 25)
@@ -286,21 +287,16 @@ $(document).ready(function(){
 		$(this).closest('li').addClass('selected');
 		$('.alert button.deliver').data('info',info);
 
-		if(info.title.length > 17){
-			$('.detail-task > .task-title').text(info.id + " - " + info.title);
-		}
-		else{
-			$('.detail-task > .task-title').text(info.id + " - " + info.title);
-		}
+		$('.detail-task > .task-title').text(info.id + " - " + info.title);
+		
+		$('.detail-task > div.progress-bar').attr('title',Math.round(info.prog)+"%");
+		$('.detail-task > div.progress-bar > div.fill').css({
+			width : info.prog+"%"
+		});
 
-		$('.detail-task > .task-title').attr("title",info.id + " - " + info.title);
+		$('.detail-task > .task-title').attr("title",info.id + " - " + info.title);		
+		$('.detail-task > .project-name').text(info.projectName);
 
-		if(info.projectName.length > 24){
-			$('.detail-task > .project-name').text(info.projectName);
-		}
-		else{
-			$('.detail-task > .project-name').text(info.projectName);
-		}
 
 		$('.detail-task > .project-name').attr("title", info.projectName);
 		$('.detail-task > .client-name').text(info.clientName);

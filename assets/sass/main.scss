@@ -206,11 +206,11 @@ section{
 			box-sizing: border-box;
 			height: 480px;
 
-			> i.backTasks{
+			>i.backTasks{
 				position: absolute;
 
 				font-size: 2em;
-				margin: 0 4px 0 0;
+				margin: -2px 4px 0 0;
 				color: #666;
 				cursor: pointer;
 				height: 26px;
@@ -317,13 +317,28 @@ section{
 				}
 			}
 
+			>div.progress-bar{
+				height: 3px;
+				width: 100%;
+				background-color: #cacaca;
+				margin: 7px 0;
+				box-sizing: border-box;
+
+				&>div.fill{
+					height: 100%;
+					width: 80%;
+					background-color: #41c341;
+					box-shadow: inset 1px -1px 2px 0px rgba(0, 0, 0, 0.4);
+				}
+			}
+
 			.tabIntern{
 				text-align: left;
-				padding: 10px 0px;
+				padding: 0 0px 10px 0;
 				margin: 0;
 				box-sizing: border-box;
 				overflow: auto;
-				height: 320px;
+				height: 306px;
 
 				&::-webkit-scrollbar{
 					width: 4px;
