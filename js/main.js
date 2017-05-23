@@ -257,7 +257,7 @@ $(document).ready(function(){
 			var info = $(this).data('info');
 			var _url = urlAPI + urlTasks + '/' + info.id + '/close';
 			console.log("_url ",_url);
-			
+
 			$.ajax({
 				type: "POST",
 				url: _url,
@@ -288,13 +288,13 @@ $(document).ready(function(){
 		$('.alert button.deliver').data('info',info);
 
 		$('.detail-task > .task-title').text(info.id + " - " + info.title);
-		
-		$('.detail-task > div.progress-bar').attr('title',Math.round(info.prog)+"%");
+
+		$('.detail-task > div.progress-bar').attr('title', Math.round(info.prog) + "%");
 		$('.detail-task > div.progress-bar > div.fill').css({
-			width : info.prog+"%"
+			width : ((info.prog >= 100) ? 100 : info.prog) + "%"
 		});
 
-		$('.detail-task > .task-title').attr("title",info.id + " - " + info.title);		
+		$('.detail-task > .task-title').attr("title",info.id + " - " + info.title);
 		$('.detail-task > .project-name').text(info.projectName);
 
 
