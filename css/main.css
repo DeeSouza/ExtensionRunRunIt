@@ -158,15 +158,16 @@ section {
       height: 480px; }
       section#loadTasks div.detail-task > i.backTasks {
         position: absolute;
-        font-size: 2em;
-        margin: -2px 4px 0 0;
+        font-size: 1.9em;
+        margin: -1px 4px 0 0;
         color: #666;
         cursor: pointer;
         height: 26px;
         width: 26px;
         text-align: center;
         background-color: transparent;
-        top: 30px; }
+        top: 30px;
+        left: 16px; }
       section#loadTasks div.detail-task > h2, section#loadTasks div.detail-task h4, section#loadTasks div.detail-task h5 {
         margin: 0; }
       section#loadTasks div.detail-task > h2.task-title {
@@ -175,7 +176,7 @@ section {
         font-size: 2.3em;
         color: #333;
         width: 260px;
-        padding: 0 0 0 37px; }
+        padding: 0 0 0 28px; }
       section#loadTasks div.detail-task > h4 {
         font-weight: 400;
         font-size: 1.8em;

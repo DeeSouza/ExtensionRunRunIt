@@ -208,17 +208,16 @@ section{
 
 			>i.backTasks{
 				position: absolute;
-
-				font-size: 2em;
-				margin: -2px 4px 0 0;
+				font-size: 1.9em;
+				margin: -1px 4px 0 0;
 				color: #666;
 				cursor: pointer;
 				height: 26px;
 				width: 26px;
 				text-align: center;
 				background-color: transparent;
-
 				top: 30px;
+				left: 16px;
 			}
 
 			> h2, h4, h5{
@@ -231,8 +230,7 @@ section{
 				font-size: 2.3em;
 				color: #333;
 				width: 260px;
-
-				padding: 0 0 0 37px;
+				padding: 0 0 0 28px;
 			}
 
 			> h4{
