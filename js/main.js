@@ -151,18 +151,17 @@ $(document).ready(function(){
 			}
 		});
 
-		$('input#search').focus(function () {
-			$(this).val('');
+		$(document).on('click', '.search-wrapper > i.fa-times', function () {
+			$('input#search').val('');
+			$('.search-wrapper').find('i').removeClass('fa-times').addClass('fa-search');
+			$('#list-tasks li').show();
 		});
 
 		$('input#search').on('keyup', function(event){
 			var t = this;
-
+			$('.search-wrapper').find('i').removeClass('fa-search').addClass('fa-times');
 			$('#list-tasks li').each(function(i,e){
-				
 				if($(t).val() != ""){
-					console.log($(t).val());
-
 					if($(this).text().toLowerCase().indexOf($(t).val().toLowerCase()) > -1){
 						$(this).show();
 					}else{
@@ -173,8 +172,6 @@ $(document).ready(function(){
 				}
 			});
 		});
-
-		
 	}
 
 	/* Load Template */
@@ -318,7 +315,7 @@ $(document).ready(function(){
 		$('.detail-task > div.progress-bar > div.fill').css({
 			width : ((info.prog >= 100) ? 100 : info.prog) + "%",
 		});
-		
+
 		$('.detail-task > div.progress-bar > div.fill').removeClass('ok');
 		$('.detail-task > div.progress-bar > div.fill').removeClass('past75');
 		$('.detail-task > div.progress-bar > div.fill').removeClass('late');
@@ -333,7 +330,6 @@ $(document).ready(function(){
 
 		$('.detail-task > .task-title').attr("title",info.id + " - " + info.title);
 		$('.detail-task > .project-name').text(info.projectName);
-
 
 		$('.detail-task > .project-name').attr("title", info.projectName);
 		$('.detail-task > .client-name').text(info.clientName);

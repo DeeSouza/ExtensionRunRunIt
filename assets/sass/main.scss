@@ -95,7 +95,7 @@ section{
 				padding: 2px;
 				background-color: #eae9e9;
 
-				&>input[type=text]{
+				& > input[type=text]{
 					outline: none;
 					border: none;
 					height: 100%;
@@ -106,7 +106,7 @@ section{
 					box-sizing: border-box;
 				}
 
-				&>i.fa-search{
+				& > i.fa{
 					position: absolute;
 					top: 0;
 					right: 0;

@@ -51,24 +51,29 @@ section {
       color: #666;
       cursor: pointer;
       outline: none;
-      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, transform; }
+      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, -webkit-transform;
+      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, transform;
+      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, transform, -webkit-transform; }
       section#loadTasks button i.fa-paper-plane, section#loadTasks button .fa-ban {
         margin-right: 5px; }
       section#loadTasks button:hover {
         color: white;
         background-color: #eb3e35; }
       section#loadTasks button:active {
-        -ms-transform: translate(0, 2px);
-            transform: translate(0, 2px); }
+        -webkit-transform: translate(0, 2px);
+            -ms-transform: translate(0, 2px);
+                transform: translate(0, 2px); }
     section#loadTasks div#tasks {
       position: relative;
-      -ms-transform: translateX(0%);
-          transform: translateX(0%);
+      -webkit-transform: translateX(0%);
+          -ms-transform: translateX(0%);
+              transform: translateX(0%);
       transition: all 0.3s ease-in;
       height: 100%; }
       section#loadTasks div#tasks.active {
-        -ms-transform: translateX(-100%);
-            transform: translateX(-100%); }
+        -webkit-transform: translateX(-100%);
+            -ms-transform: translateX(-100%);
+                transform: translateX(-100%); }
       section#loadTasks div#tasks > div.search-wrapper {
         height: 9%;
         width: 100%;
@@ -84,7 +89,7 @@ section {
           background-color: transparent;
           padding: 0 28px 0 10px;
           box-sizing: border-box; }
-        section#loadTasks div#tasks > div.search-wrapper > i.fa-search {
+        section#loadTasks div#tasks > div.search-wrapper > i.fa {
           position: absolute;
           top: 0;
           right: 0;
@@ -202,8 +207,9 @@ section {
       overflow: hidden;
       background-color: #FFF;
       transition: all 0.3s ease-in;
-      -ms-transform: translateX(100%);
-          transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+          -ms-transform: translateX(100%);
+              transform: translateX(100%);
       padding: 20px;
       box-sizing: border-box;
       height: 480px; }
@@ -241,11 +247,13 @@ section {
       section#loadTasks div.detail-task.active {
         opacity: 1;
         visibility: visible;
-        -ms-transform: translateX(0%);
-            transform: translateX(0%); }
+        -webkit-transform: translateX(0%);
+            -ms-transform: translateX(0%);
+                transform: translateX(0%); }
         section#loadTasks div.detail-task.active.off-screen {
-          -ms-transform: translateX(-100%);
-              transform: translateX(-100%); }
+          -webkit-transform: translateX(-100%);
+              -ms-transform: translateX(-100%);
+                  transform: translateX(-100%); }
       section#loadTasks div.detail-task a.open-options {
         position: absolute;
         top: 30px;
@@ -358,16 +366,18 @@ section {
       overflow: hidden;
       background-color: transparent;
       transition: 0.3s ease-in all;
-      -ms-transform: translateX(100%);
-          transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+          -ms-transform: translateX(100%);
+              transform: translateX(100%);
       padding: 20px;
       box-sizing: border-box;
       height: 480px; }
       section#loadTasks div.alert.active {
         opacity: 1;
         visibility: visible;
-        -ms-transform: translateX(0%);
-            transform: translateX(0%); }
+        -webkit-transform: translateX(0%);
+            -ms-transform: translateX(0%);
+                transform: translateX(0%); }
       section#loadTasks div.alert h2 {
         margin: 0;
         background-color: #eb3e35;
