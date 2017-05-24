@@ -45,7 +45,7 @@ section{
 
 	&#loadTasks{
 		position: relative;
-		height: 480px;
+		height: 492px;
 
 		button{
 			position: absolute;
@@ -93,6 +93,58 @@ section{
 				height: 100%;
 				overflow-x: hidden;
 				overflow-y: auto;
+
+				&::-webkit-scrollbar{
+					width: 4px;
+					height: 4px;
+				}
+
+				&::-webkit-scrollbar-button{
+					width: 0px;
+					height: 0px;
+				}
+
+				&::-webkit-scrollbar-thumb{
+					background: #C7C7C7;
+					border: 0px none #FFF;
+					border-radius: 50px;
+				}
+
+				&::-webkit-scrollbar-thumb:hover{
+					background: #C7C7C7;
+				}
+
+				&::-webkit-scrollbar-thumb:active{
+					background: #C7C7C7;
+				}
+
+				&::-webkit-scrollbar-track{
+					background: #FFF;
+					border: 0px none #FFF;
+					border-radius: 100px;
+				}
+
+				&::-webkit-scrollbar-track:hover{
+					background: #FFF;
+				}
+
+				&::-webkit-scrollbar-track:active{
+					background: #FFF;
+				}
+
+				&::-webkit-scrollbar-corner{
+					background: transparent;
+				}
+
+				&.hide{
+					display: none;
+				}
+
+				&.description{
+					box-sizing: border-box;
+					font-size: 14px;
+					font-family: "Roboto";
+				}
 
 				li{
 				    padding: 10px;
@@ -446,6 +498,7 @@ section{
 
 			p{
 				font-size: 16px;
+				text-align: center;
 			}
 
 			button.deliver{

@@ -35,7 +35,7 @@ section {
     text-overflow: ellipsis; }
   section#loadTasks {
     position: relative;
-    height: 480px; }
+    height: 492px; }
     section#loadTasks button {
       position: absolute;
       width: 90%;
@@ -51,29 +51,64 @@ section {
       color: #666;
       cursor: pointer;
       outline: none;
-      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, transform; }
+      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, -webkit-transform;
+      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, transform;
+      transition: 0.25s cubic-bezier(0, 0, 0.2, 1) background-color, transform, -webkit-transform; }
       section#loadTasks button i.fa-paper-plane, section#loadTasks button .fa-ban {
         margin-right: 5px; }
       section#loadTasks button:hover {
         color: white;
         background-color: #eb3e35; }
       section#loadTasks button:active {
-        -ms-transform: translate(0, 2px);
-            transform: translate(0, 2px); }
+        -webkit-transform: translate(0, 2px);
+            -ms-transform: translate(0, 2px);
+                transform: translate(0, 2px); }
     section#loadTasks div#tasks {
       position: relative;
-      -ms-transform: translateX(0%);
-          transform: translateX(0%);
+      -webkit-transform: translateX(0%);
+          -ms-transform: translateX(0%);
+              transform: translateX(0%);
       transition: all 0.3s ease-in;
       height: 100%; }
       section#loadTasks div#tasks.active {
-        -ms-transform: translateX(-100%);
-            transform: translateX(-100%); }
+        -webkit-transform: translateX(-100%);
+            -ms-transform: translateX(-100%);
+                transform: translateX(-100%); }
       section#loadTasks div#tasks ul {
         position: relative;
         height: 100%;
         overflow-x: hidden;
         overflow-y: auto; }
+        section#loadTasks div#tasks ul::-webkit-scrollbar {
+          width: 4px;
+          height: 4px; }
+        section#loadTasks div#tasks ul::-webkit-scrollbar-button {
+          width: 0px;
+          height: 0px; }
+        section#loadTasks div#tasks ul::-webkit-scrollbar-thumb {
+          background: #C7C7C7;
+          border: 0px none #FFF;
+          border-radius: 50px; }
+        section#loadTasks div#tasks ul::-webkit-scrollbar-thumb:hover {
+          background: #C7C7C7; }
+        section#loadTasks div#tasks ul::-webkit-scrollbar-thumb:active {
+          background: #C7C7C7; }
+        section#loadTasks div#tasks ul::-webkit-scrollbar-track {
+          background: #FFF;
+          border: 0px none #FFF;
+          border-radius: 100px; }
+        section#loadTasks div#tasks ul::-webkit-scrollbar-track:hover {
+          background: #FFF; }
+        section#loadTasks div#tasks ul::-webkit-scrollbar-track:active {
+          background: #FFF; }
+        section#loadTasks div#tasks ul::-webkit-scrollbar-corner {
+          background: transparent; }
+        section#loadTasks div#tasks ul.hide {
+          display: none; }
+        section#loadTasks div#tasks ul.description {
+          box-sizing: border-box;
+          font-size: 14px;
+          font-family: "Roboto"; }
         section#loadTasks div#tasks ul li {
           padding: 10px;
           position: relative;
@@ -151,8 +186,9 @@ section {
       overflow: hidden;
       background-color: #FFF;
       transition: all 0.3s ease-in;
-      -ms-transform: translateX(100%);
-          transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+          -ms-transform: translateX(100%);
+              transform: translateX(100%);
       padding: 20px;
       box-sizing: border-box;
       height: 480px; }
@@ -190,11 +226,13 @@ section {
       section#loadTasks div.detail-task.active {
         opacity: 1;
         visibility: visible;
-        -ms-transform: translateX(0%);
-            transform: translateX(0%); }
+        -webkit-transform: translateX(0%);
+            -ms-transform: translateX(0%);
+                transform: translateX(0%); }
         section#loadTasks div.detail-task.active.off-screen {
-          -ms-transform: translateX(-100%);
-              transform: translateX(-100%); }
+          -webkit-transform: translateX(-100%);
+              -ms-transform: translateX(-100%);
+                  transform: translateX(-100%); }
       section#loadTasks div.detail-task a.open-options {
         position: absolute;
         top: 30px;
@@ -302,16 +340,18 @@ section {
       overflow: hidden;
       background-color: transparent;
       transition: 0.3s ease-in all;
-      -ms-transform: translateX(100%);
-          transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+          -ms-transform: translateX(100%);
+              transform: translateX(100%);
       padding: 20px;
       box-sizing: border-box;
       height: 480px; }
       section#loadTasks div.alert.active {
         opacity: 1;
         visibility: visible;
-        -ms-transform: translateX(0%);
-            transform: translateX(0%); }
+        -webkit-transform: translateX(0%);
+            -ms-transform: translateX(0%);
+                transform: translateX(0%); }
       section#loadTasks div.alert h2 {
         margin: 0;
         background-color: #eb3e35;
@@ -325,7 +365,8 @@ section {
         section#loadTasks div.alert h2 > i {
           padding: 0 10px 0; }
       section#loadTasks div.alert p {
-        font-size: 16px; }
+        font-size: 16px;
+        text-align: center; }
       section#loadTasks div.alert button.deliver {
         bottom: 50px; }
         section#loadTasks div.alert button.deliver:hover {
