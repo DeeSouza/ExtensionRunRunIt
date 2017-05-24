@@ -158,7 +158,7 @@ $(document).ready(function(){
 		$('input#search').on('keyup', function(event){
 			var t = this;
 
-			$('li').each(function(i,e){
+			$('#list-tasks li').each(function(i,e){
 				
 				if($(t).val() != ""){
 					console.log($(t).val());
