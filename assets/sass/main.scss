@@ -377,8 +377,19 @@ section{
 				&>div.fill{
 					height: 100%;
 					width: 80%;
-					background-color: #41c341;
 					box-shadow: inset 1px -1px 2px 0px rgba(0, 0, 0, 0.4);
+
+					&.ok{
+						background-color: #41c341;
+					}
+
+					&.past75{
+						background-color: orange;
+					}
+
+					&.late{
+						background-color: red;
+					}
 				}
 			}
 

@@ -291,8 +291,20 @@ $(document).ready(function(){
 
 		$('.detail-task > div.progress-bar').attr('title', Math.round(info.prog) + "%");
 		$('.detail-task > div.progress-bar > div.fill').css({
-			width : ((info.prog >= 100) ? 100 : info.prog) + "%"
+			width : ((info.prog >= 100) ? 100 : info.prog) + "%",
 		});
+		
+		$('.detail-task > div.progress-bar > div.fill').removeClass('ok');
+		$('.detail-task > div.progress-bar > div.fill').removeClass('past75');
+		$('.detail-task > div.progress-bar > div.fill').removeClass('late');
+
+		if(info.prog < 75){
+			$('.detail-task > div.progress-bar > div.fill').addClass('ok');
+		}else if(info.prog >= 75 && info.prog < 100){
+			$('.detail-task > div.progress-bar > div.fill').addClass('past75');
+		}else{
+			$('.detail-task > div.progress-bar > div.fill').addClass('late');
+		}
 
 		$('.detail-task > .task-title').attr("title",info.id + " - " + info.title);
 		$('.detail-task > .project-name').text(info.projectName);
