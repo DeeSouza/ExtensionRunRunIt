@@ -159,15 +159,11 @@ $(document).ready(function(){
 			var t = this;
 
 			$('li').each(function(i,e){
-				/*if($(this).text().indexOf($(t).val()) != -1 && $(t).val() != ''){
-					$(this).show();
-				}else{
-					$(this).hide();
-				}*/
+				
 				if($(t).val() != ""){
 					console.log($(t).val());
 
-					if($(this).text().indexOf($(t).val()) > -1){
+					if($(this).text().toLowerCase().indexOf($(t).val().toLowerCase()) > -1){
 						$(this).show();
 					}else{
 						$(this).hide();

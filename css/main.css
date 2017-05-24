@@ -70,7 +70,7 @@ section {
         -ms-transform: translateX(-100%);
             transform: translateX(-100%); }
       section#loadTasks div#tasks > div.search-wrapper {
-        height: 6%;
+        height: 9%;
         width: 100%;
         box-sizing: border-box;
         padding: 2px;
@@ -88,11 +88,11 @@ section {
           position: absolute;
           top: 0;
           right: 0;
-          margin: 8px 10px 0 0;
+          margin: 14px 10px 0 0;
           color: #969595; }
       section#loadTasks div#tasks ul {
         position: relative;
-        height: 94%;
+        height: 91%;
         overflow-x: hidden;
         overflow-y: auto; }
         section#loadTasks div#tasks ul::-webkit-scrollbar {
