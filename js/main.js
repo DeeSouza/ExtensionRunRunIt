@@ -150,6 +150,35 @@ $(document).ready(function(){
 				});
 			}
 		});
+
+		$('input#search').focus(function () {
+			$(this).val('');
+		});
+
+		$('input#search').on('keyup', function(event){
+			var t = this;
+
+			$('li').each(function(i,e){
+				/*if($(this).text().indexOf($(t).val()) != -1 && $(t).val() != ''){
+					$(this).show();
+				}else{
+					$(this).hide();
+				}*/
+				if($(t).val() != ""){
+					console.log($(t).val());
+
+					if($(this).text().indexOf($(t).val()) > -1){
+						$(this).show();
+					}else{
+						$(this).hide();
+					}
+				}else{
+					$(this).show();
+				}
+			});
+		});
+
+		
 	}
 
 	/* Load Template */

@@ -88,9 +88,36 @@ section{
 				transform: translateX(-100%);
 			}
 
+			>div.search-wrapper{
+				height: 6%;
+				width: 100%;
+				box-sizing: border-box;
+				padding: 2px;
+				background-color: #eae9e9;
+
+				&>input[type=text]{
+					outline: none;
+					border: none;
+					height: 100%;
+					width: 100%;
+					border-bottom: 2px solid rgb(208, 204, 204);
+					background-color: transparent;
+					padding: 0 28px 0 10px;
+					box-sizing: border-box;
+				}
+
+				&>i.fa-search{
+					position: absolute;
+					top: 0;
+					right: 0;
+					margin: 8px 10px 0 0;
+					color: #969595;
+				}
+			}
+
 			ul{
 				position: relative;
-				height: 100%;
+				height: 94%;
 				overflow-x: hidden;
 				overflow-y: auto;
 
