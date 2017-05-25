@@ -406,7 +406,6 @@ $(document).ready(function(){
 	/* Click Outside Menu Options */
 	$('body').on('click', function(event){
 		var targetClick = event.target;
-		console.log(targetClick);
 		if(!$(targetClick).closest('a').hasClass('open-options') && !$(targetClick).closest('ul').hasClass('menuOptions')){
 			$('.menuOptions').removeClass('active');
 		}
