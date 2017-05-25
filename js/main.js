@@ -151,12 +151,14 @@ $(document).ready(function(){
 			}
 		});
 
+		/* Click in X and Clear Input Search */
 		$(document).on('click', '.search-wrapper > i.fa-times', function () {
 			$('input#search').val('');
 			$('.search-wrapper').find('i').removeClass('fa-times').addClass('fa-search');
 			$('#list-tasks li').show();
 		});
 
+		/* Search Tasks */
 		$('input#search').on('keyup', function(event){
 			var t = this;
 			$('.search-wrapper').find('i').removeClass('fa-search').addClass('fa-times');
@@ -300,7 +302,8 @@ $(document).ready(function(){
 	}
 
 	/* Show Description From Task */
-	function showTask(){
+	function showTask(event){
+		event.stopPropagation();
 		$('#list-tasks>li').removeClass('selected');
 
 		var idTask 	= $(this).closest('li').data('id-task');
@@ -398,6 +401,15 @@ $(document).ready(function(){
 	/* Show Menu Options */
 	$('.open-options').on('click', function(){
 		$('.menuOptions').toggleClass('active');
+	});
+
+	/* Click Outside Menu Options */
+	$('body').on('click', function(event){
+		var targetClick = event.target;
+		console.log(targetClick);
+		if(!$(targetClick).closest('a').hasClass('open-options') && !$(targetClick).closest('ul').hasClass('menuOptions')){
+			$('.menuOptions').removeClass('active');
+		}
 	});
 
 	CheckAuth();
