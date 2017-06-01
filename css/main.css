@@ -305,7 +305,7 @@ section {
           box-shadow: inset 1px -1px 2px 0px rgba(0, 0, 0, 0.4); }
           section#loadTasks div.detail-task > div.progress-bar > div.fill.ok {
             background-color: #41c341; }
-          section#loadTasks div.detail-task > div.progress-bar > div.fill.past75 {
+          section#loadTasks div.detail-task > div.progress-bar > div.fill.past60 {
             background-color: orange; }
           section#loadTasks div.detail-task > div.progress-bar > div.fill.late {
             background-color: red; }
@@ -346,6 +346,12 @@ section {
           box-sizing: border-box;
           font-size: 14px;
           font-family: "Roboto"; }
+        section#loadTasks div.detail-task .tabIntern.details {
+          box-sizing: border-box;
+          font-size: 14px;
+          font-family: "Roboto"; }
+          section#loadTasks div.detail-task .tabIntern.details div.titles {
+            margin-top: 10px; }
         section#loadTasks div.detail-task .tabIntern.attachments ul {
           list-style: none;
           padding: 0;

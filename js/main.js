@@ -91,6 +91,32 @@ $(document).ready(function(){
 
 	})();
 
+	/* Format Seconds to Hours */
+	function formatTime(seconds){
+		return (seconds / 3600).toFixed(2).replace('.', ':') + 'Hs';
+	}
+
+	/* Format Date */
+	function formatDate(date){
+		var monthNumber = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+
+		var day 		= (date.getDate() < 10) ? '0' + date.getDate() : date.getDate();
+		var monthIndex 	= date.getMonth();
+		var year 		= date.getFullYear();
+
+		return day + '/' + monthNumber[monthIndex] + '/' + year;
+	}
+
+	/* States Tasks */
+	function showNameState(state){
+		var status		= {
+			queued 		: 'Na Fila',
+			working_on 	: 'Trabalhando'
+		}
+		console.log(status[state]);
+		return status[state];
+	}
+
 	/* List of Tasks of the User Logged */
 	function listTasks(){
 		var ulContent 	= $('#list-tasks');
@@ -115,7 +141,17 @@ $(document).ready(function(){
 						teamName	: v.team_name,
 						title		: v.title,
 						typeName	: v.type_name,
-						prog 		: v.time_progress
+						prog 		: v.time_progress,
+						creator 	: v.user_name,
+						responsible : v.responsible_name,
+						createdAt	: formatDate(new Date(v.created_at)),
+						startDate	: formatDate(new Date(v.start_date)),
+						typeTask 	: v.type_name,
+						stateTask 	: showNameState(v.state),
+						timeWorked 	: formatTime(v.time_worked),
+						timePending : formatTime(v.time_pending),
+						timeTotal 	: formatTime(v.time_total),
+						attachCount	: v.attachments_count
 					};
 
 					if(v.title.length > 25)
@@ -133,7 +169,7 @@ $(document).ready(function(){
 												<div class="client">${v.client_name}</div>
 												<a href="https://secure.runrun.it/tasks/${v.id}" class="externalLink" target="_blank"><i class="fa fa-external-link"></i></a>
 											</div>
-										 </li>`).children(`li[data-id-task=${v.id}]`).data("info",inf);
+										 </li>`).children(`li[data-id-task=${v.id}]`).data("info", inf);
 					}else{
 						ulContent.append(`<li data-id-task="${v.id}" class="showTask">
 										 	<i class="fa fa-play playTask"></i>
@@ -304,7 +340,11 @@ $(document).ready(function(){
 	/* Show Description From Task */
 	function showTask(event){
 		event.stopPropagation();
-		$('#list-tasks>li').removeClass('selected');
+
+		$('.tabIntern').addClass('hide');
+		$('.description').removeClass('hide');
+
+		$('#list-tasks > li').removeClass('selected');
 
 		var idTask 	= $(this).closest('li').data('id-task');
 		var info 	= $(this).closest('li').data('info');
@@ -320,14 +360,16 @@ $(document).ready(function(){
 		});
 
 		$('.detail-task > div.progress-bar > div.fill').removeClass('ok');
-		$('.detail-task > div.progress-bar > div.fill').removeClass('past75');
+		$('.detail-task > div.progress-bar > div.fill').removeClass('past60');
 		$('.detail-task > div.progress-bar > div.fill').removeClass('late');
 
-		if(info.prog < 75){
+		if(info.prog < 60){
 			$('.detail-task > div.progress-bar > div.fill').addClass('ok');
-		}else if(info.prog >= 75 && info.prog < 100){
-			$('.detail-task > div.progress-bar > div.fill').addClass('past75');
-		}else{
+		}
+		else if(info.prog >= 60 && info.prog < 90){
+			$('.detail-task > div.progress-bar > div.fill').addClass('past60');
+		}
+		else{
 			$('.detail-task > div.progress-bar > div.fill').addClass('late');
 		}
 
@@ -337,6 +379,17 @@ $(document).ready(function(){
 		$('.detail-task > .project-name').attr("title", info.projectName);
 		$('.detail-task > .client-name').text(info.clientName);
 		$('.detail-task > .client-name').attr("title", info.clientName);
+
+		$('.detail-task > .details > .creator > div').text(info.creator);
+		$('.detail-task > .details > .responsible > div').text(info.responsible);
+		$('.detail-task > .details > .created_at > div').text(info.createdAt);
+		$('.detail-task > .details > .start_date > div').text(info.startDate);
+		$('.detail-task > .details > .type > div').text(info.typeTask);
+		$('.detail-task > .details > .state > div').text(info.stateTask);
+		$('.detail-task > .details > .time_worked > div').text(info.timeWorked);
+		$('.detail-task > .details > .time_pending > div').text(info.timePending);
+		$('.detail-task > .details > .time_total > div').text(info.timeTotal);
+		$('.detail-task > .details > .attach_count > div').text(info.attachCount);
 
 		$.ajax({
 			type: "GET",

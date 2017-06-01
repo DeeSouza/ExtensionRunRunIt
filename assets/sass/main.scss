@@ -410,7 +410,7 @@ section{
 						background-color: #41c341;
 					}
 
-					&.past75{
+					&.past60{
 						background-color: orange;
 					}
 
@@ -478,6 +478,17 @@ section{
 					box-sizing: border-box;
 					font-size: 14px;
 					font-family: "Roboto";
+				}
+
+				&.details{
+					box-sizing: border-box;
+					font-size: 14px;
+					font-family: "Roboto";
+					div {
+						&.titles{
+							margin-top: 10px;
+						}
+					}
 				}
 
 				&.attachments{
