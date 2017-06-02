@@ -14,8 +14,9 @@
 - Clique em "Carregar extensão expandida"
 - Selecione a **pasta** da extensão
 
+---
+
 ## Screenshots
 
 ### Tasks (Lista de Tarefas)
----
 ![preview](https://raw.githubusercontent.com/DeeSouza/extensionrunrunit/master/img/screenshot/tasks.png)
