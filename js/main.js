@@ -1,4 +1,4 @@
-var urlAPI 		= "https://secure.runrun.it/api/v1.0/";
+var urlAPI 		= "https://secure.runrun.it/api/v1.0";
 var urlTasks	= '/tasks';
 var urlUsers	= '/users/';
 var urlUserStat	= '/user_statistics/';
@@ -113,7 +113,6 @@ $(document).ready(function(){
 			queued 		: 'Na Fila',
 			working_on 	: 'Trabalhando'
 		}
-		console.log(status[state]);
 		return status[state];
 	}
 
@@ -316,19 +315,21 @@ $(document).ready(function(){
 		function deliver(){
 			var info = $(this).data('info');
 			var _url = urlAPI + urlTasks + '/' + info.id + '/close';
-			console.log("_url ",_url);
 
 			$.ajax({
 				type: "POST",
 				url: _url,
 				beforeSend: function(){
-
+					$('button.deliver').html('<i class="fa fa-circle-o-notch fa-spin"></i>').prop('disabled', true);
 				},
 				success: function(response){
-
+					$('#tasks').removeClass('active');
+					$('.detail-task').removeClass('active');
+					$('.alert').removeClass('active');
+					listTasks();
 				},
 				error: function(){
-
+					$('button.deliver').html('<i class="fa fa-paper-plane"></i> ENTREGAR').prop('disabled', false);
 				}
 			});
 		}
