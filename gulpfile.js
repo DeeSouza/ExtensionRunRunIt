@@ -16,7 +16,7 @@ gulp.task('run-prefixer', ['sass'], function() {
 		browsers: ['last 4 versions', '> 10%', 'ie 9'],
 		cascade: true
 	}))
-	.pipe(gulp.dest('css/'));
+	.pipe(gulp.dest('dist/css/'));
 });
 
 gulp.task('compress', function() {
@@ -29,7 +29,7 @@ gulp.task('compress', function() {
         exclude: ['tasks'],
         ignoreFiles: ['.min.js']
     }))
-    .pipe(gulp.dest('dist/min'))
+    .pipe(gulp.dest('dist/js/min'))
 });
 
 gulp.task("default", function(){
