@@ -10,8 +10,9 @@
 	<header><img src="img/runrunit-logo.png" alt="RunrunIt"></header>
 
 	<section id="loadLogin" class="sectionTemplate">
-		<input type="text" id="username" name="username" placeholder="Username">
-		<button id="doLogin">Entrar</button>
+		<div class="welcome">Digite seu username no campo abaixo para ter acesso as tarefas.</div>
+		<input type="text" id="username" name="username" placeholder="Username" autocomplete="off">
+		<button id="doLogin">ENTRAR</button>
 
 		<label id="error"></label>
 	</section>
@@ -20,7 +21,7 @@
 		<ul>
 			<li class="showSection active" id="#loadTasks">
 				<i class="fa fa-tasks"></i>
-				<div>TAREFAS</div>
+				<div>TAREFAS ABERTAS</div>
 			</li>
 			<li class="showSection" id="#loadStat">
 				<i class="fa fa-line-chart"></i>

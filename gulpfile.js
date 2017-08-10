@@ -7,7 +7,7 @@ var minify 			= require('gulp-minify');
 gulp.task('sass', function(){
 	return gulp.src('assets/sass/**/*')
 	.pipe(gulpif(function(file){ return file.path.indexOf('.scss') != -1; }, gulpsass()))
-	.pipe(gulp.dest('css/'));
+	.pipe(gulp.dest('dist/css/'));
 });
 
 gulp.task('run-prefixer', ['sass'], function() {
