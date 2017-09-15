@@ -676,7 +676,7 @@ nav#menuApp{
 			display: inline-block;
 			border-top: 1px solid #5a5a5a;
 			height: 50px;
-			width: 33.3%;
+			width: calc(100% / 2);
 			text-align: center;
 			font-weight: 400;
 			cursor: pointer;
